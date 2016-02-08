@@ -58,6 +58,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataSeed\AdminSeeder.cs" />
+    <Compile Include="DataSeed\ArticlesSeeder.cs" />
     <Compile Include="DataSeed\IDataSeeder.cs" />
     <Compile Include="IVinylCDbContext.cs" />
     <Compile Include="Migrations\Configuration.cs" />

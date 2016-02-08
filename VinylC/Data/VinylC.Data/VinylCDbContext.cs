@@ -1,5 +1,6 @@
 ﻿namespace VinylC.Data
 {
+    using System.Data.Entity;
     using Microsoft.AspNet.Identity.EntityFramework;
     using VinylC.Data.Models;
 
@@ -9,6 +10,12 @@
             : base("DefaultConnection", throwIfV1Schema: false)
         {
         }
+
+        public virtual IDbSet<Article> Articles { get; set; }
+
+        public virtual IDbSet<AtricleCategory> AtricleCategories { get; set; }
+
+        public virtual IDbSet<Comment> Comments { get; set; }
 
         public static VinylCDbContext Create()
         {

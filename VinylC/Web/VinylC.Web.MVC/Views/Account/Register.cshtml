@@ -62,16 +62,18 @@
 @section Scripts {
     <script type="text/javascript">
 
-        $("#Avatar").on('focusout', function (ev) {
+        var canAddMore = true;
 
+        $("#Avatar").on('focusout', function (ev) {
+            
             var pic = $('#Avatar').val();
             if (pic) {
                
                 var patt = new RegExp("([a-z\-_0-9\/\:\.]*\.(jpg|jpeg|png|gif))");
                 var res = patt.test(pic);
-                console.log(res);
 
-                if (res) {
+                if (res && canAddMore) {
+                    canAddMore = false;
                     var img = $('<img id="dynamic">');
                     img.attr('src', pic);
                     img.css('width', '75%')

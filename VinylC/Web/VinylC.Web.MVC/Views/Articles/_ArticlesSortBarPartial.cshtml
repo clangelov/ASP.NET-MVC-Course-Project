@@ -1,0 +1,11 @@
+﻿
+@{
+    ViewBag.Title = "_ArticlesSortBarPartial";
+}
+
+<ul class="sort-links">
+    <li>Sorty by:</li>
+    <li>@Html.ActionLink("Title", "All", "Ads", new { SearchString = ViewBag.CurrentFilter as string, sortOrder = ViewBag.NameSortParm }, null)</li>
+    <li>@Html.ActionLink("Date", "All", "Ads", new { SearchString = ViewBag.CurrentFilter as string, sortOrder = ViewBag.DateSortParm }, null)</li>
+</ul>
+

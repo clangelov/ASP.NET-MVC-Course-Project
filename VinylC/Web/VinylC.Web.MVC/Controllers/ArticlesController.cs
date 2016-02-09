@@ -1,5 +1,7 @@
 ﻿namespace VinylC.Web.MVC.Controllers
 {
+    using System;
+    using System.Linq;
     using System.Web.Mvc;
     using AutoMapper.QueryableExtensions;
     using Models.Articles;
@@ -20,7 +22,7 @@
             this.categories = categories;
         }
 
-        public ActionResult All(int? page)
+        public ActionResult All(string sortOrder, int? page)
         {
             var articles = this.articles
                 .AllArticles()
@@ -28,18 +30,22 @@
 
             int pageNumber = page ?? 1;
 
-            return this.View(articles.ToPagedList(pageNumber, PageSize));
+            var sorted = this.GetSorted(articles, sortOrder);
+
+            return this.View(sorted.ToPagedList(pageNumber, PageSize));
         }
 
-        public ActionResult Category(string category, int? page)
+        public ActionResult Category(string sortOrder, string id, int? page)
         {
             var articles = this.articles
-                .AllByCategory(category)
+                .AllByCategory(id)
                 .ProjectTo<ArticlesListViewModel>();
 
             int pageNumber = page ?? 1;
 
-            return this.View(articles.ToPagedList(pageNumber, PageSize));
+            var sorted = this.GetSorted(articles, sortOrder);
+
+            return this.View(sorted.ToPagedList(pageNumber, PageSize));
         }
 
         [HttpGet]
@@ -51,6 +57,33 @@
                 .ProjectTo<ArticlesCategoriesViewModel>();
 
             return this.PartialView("_CategoriesPartial", categories);
+        }
+
+        private IQueryable<ArticlesListViewModel> GetSorted(
+            IQueryable<ArticlesListViewModel> allArticles,
+            string sortOrder)
+        {
+            ViewBag.CurrentSort = sortOrder;
+            ViewBag.DateSortParm = String.IsNullOrEmpty(sortOrder) ? "Date" : "";
+            ViewBag.NameSortParm = sortOrder == "Name" ? "name_desc" : "Name";
+
+            switch (sortOrder)
+            {
+                case "Name":
+                    allArticles = allArticles.OrderBy(a => a.Title);
+                    break;
+                case "name_desc":
+                    allArticles = allArticles.OrderByDescending(a => a.Title);
+                    break;
+                case "Date":
+                    allArticles = allArticles.OrderBy(a => a.PostedOn);
+                    break;
+                default:  
+                    allArticles = allArticles.OrderByDescending(a => a.PostedOn);
+                    break;
+            }
+
+            return allArticles;
         }
     }
 }

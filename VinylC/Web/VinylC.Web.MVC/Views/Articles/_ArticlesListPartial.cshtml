@@ -1,0 +1,24 @@
+﻿@using PagedList.Mvc;
+@model PagedList.IPagedList<VinylC.Web.MVC.Models.Articles.ArticlesListViewModel>
+
+@foreach (var article in Model)
+{
+    <div class="row">
+        <div class="col-sm-4">
+            <img src="@article.ImageUrl" class="img-responsive">
+        </div>
+        <div class="col-sm-8">
+            <h3 class="title">@article.Title</h3>
+            <p class="text-muted"><span class="glyphicon glyphicon-calendar"></span>@article.PostedOn</p>
+            <p>
+                @article.Contetnt.Substring(0, 100);
+                @if (article.Contetnt.Length > 100)
+                {
+                   <span>... <a href="#">Read More</a></span>
+                }
+            </p><p class="text-muted">Presented by <a href="#">@article.User.UserName</a></p>
+
+        </div>
+    </div>
+    <hr/>
+}

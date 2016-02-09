@@ -16,7 +16,7 @@
 
         public IQueryable<Article> AllArticles()
         {
-            return this.articles.All();
+            return this.articles.All().OrderByDescending(x => x.PostedOn);
         }
 
         public Article ArticleById(int id)

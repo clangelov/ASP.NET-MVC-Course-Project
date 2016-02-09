@@ -284,7 +284,6 @@
     <Content Include="Views\Articles\_ArticlesListPartial.cshtml" />
     <Content Include="Views\Articles\_CategoriesPartial.cshtml" />
     <Content Include="Views\Articles\Category.cshtml" />
-    <Content Include="Views\Articles\_ArticlesSortBarPartial.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\CreatePageButton.cshtml" />
     <Content Include="Views\Articles\Details.cshtml" />
   </ItemGroup>

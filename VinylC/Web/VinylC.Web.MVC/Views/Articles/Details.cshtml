@@ -1,0 +1,49 @@
+﻿@model VinylC.Web.MVC.Models.Articles.ArticlesDetailsViewModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <hr />
+            <h1 class="text-center">@Html.DisplayFor(m => m.Title, "Title")</h1>
+            <hr />
+            <div class="text-info row">
+                <div class="col-md-3"><i class="glyphicon glyphicon-user"></i>&nbsp;@Html.DisplayFor(m => m.User, "Author")</div>
+                <div class="col-md-4"><i class="glyphicon glyphicon-calendar"></i>&nbsp;@Html.DisplayFor(m => m.PostedOn, "Posted")</div>
+                <div class="col-md-2">
+                    <i class="glyphicon glyphicon-comment"></i>&nbsp;<a href="#ArticleDetailsComments">@Model.Comments.Count()</a>
+                    
+                </div>
+                <div class="col-md-3"><span class="glyphicon glyphicon-inbox"></span><a href="/Articles/Category/@Model.Category">&nbsp;@Model.Category</a></div>
+            </div>
+            <hr />
+            <div>
+                <img src="@Model.ImageUrl" class="img-responsive center-block">
+            </div>
+            <hr />
+            <div>
+                @Html.DisplayFor(m => m.Contetnt, "Content")
+            </div>
+            <hr />
+        </div>
+        <div class="col-md-2">
+            <br />
+            <br />
+            <button id="ReturnBackButon" class="btn btn-lg btn-default">Go Back</button>
+        </div>
+    </div>
+</div>
+<div class="jumbotron" id="ArticleDetailsComments">
+    <h2>Comments!!!</h2>
+</div>
+
+@section Scripts {
+    <script type="text/javascript">
+        $("#ReturnBackButon").on('click', function (ev) {
+            window.history.back(1);
+        });
+    </script>
+}

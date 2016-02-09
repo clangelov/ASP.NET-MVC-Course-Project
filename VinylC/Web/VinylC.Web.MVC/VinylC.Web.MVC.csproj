@@ -214,8 +214,11 @@
     <Compile Include="Infrastructure\Mappings\IMapFrom.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ArticlesCategories\ArticlesCategoriesViewModel.cs" />
+    <Compile Include="Models\Articles\ArticlesDetailsViewModel.cs" />
     <Compile Include="Models\Articles\ArticlesListViewModel.cs" />
+    <Compile Include="Models\Comments\CommentsViewModel.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Users\SimpleUserViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -283,6 +286,7 @@
     <Content Include="Views\Articles\Category.cshtml" />
     <Content Include="Views\Articles\_ArticlesSortBarPartial.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\CreatePageButton.cshtml" />
+    <Content Include="Views\Articles\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

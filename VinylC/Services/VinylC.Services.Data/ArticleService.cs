@@ -28,9 +28,10 @@
                 .OrderByDescending(x => x.PostedOn);
         }
 
-        public Article ArticleById(int id)
+        public IQueryable<Article> ArticleById(int id)
         {
-            return this.articles.GetById(id);
+            return this.articles.All()
+                .Where(x => x.Id == id);
         }
     }
 }

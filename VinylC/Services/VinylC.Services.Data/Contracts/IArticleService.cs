@@ -9,6 +9,6 @@
 
         IQueryable<Article> AllByCategory(string category);
 
-        Article ArticleById(int id);
+        IQueryable<Article> ArticleById(int id);
     }
 }

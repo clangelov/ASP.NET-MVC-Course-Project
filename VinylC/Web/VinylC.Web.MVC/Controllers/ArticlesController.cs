@@ -2,6 +2,7 @@
 {
     using System;
     using System.Linq;
+    using System.Net;
     using System.Web.Mvc;
     using AutoMapper.QueryableExtensions;
     using Models.Articles;
@@ -48,6 +49,21 @@
             return this.View(sorted.ToPagedList(pageNumber, PageSize));
         }
 
+        public ActionResult Details(int id)
+        {
+            var article = this.articles
+                .ArticleById(id)
+                .ProjectTo<ArticlesDetailsViewModel>()
+                .FirstOrDefault();
+
+            if (article == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.NotFound, "Item not Found");
+            }
+
+            return this.View(article);
+        }
+
         [HttpGet]
         [ChildActionOnly]
         public ActionResult GetCategoriesPartial()
@@ -59,9 +75,7 @@
             return this.PartialView("_CategoriesPartial", categories);
         }
 
-        private IQueryable<ArticlesListViewModel> GetSorted(
-            IQueryable<ArticlesListViewModel> allArticles,
-            string sortOrder)
+        private IQueryable<ArticlesListViewModel> GetSorted(IQueryable<ArticlesListViewModel> allArticles, string sortOrder)
         {
             ViewBag.CurrentSort = sortOrder;
             ViewBag.DateSortParm = String.IsNullOrEmpty(sortOrder) ? "Date" : "";

@@ -8,17 +8,21 @@
             <img src="@article.ImageUrl" class="img-responsive">
         </div>
         <div class="col-sm-8">
-            <h3 class="title">@article.Title</h3>
-            <p class="text-muted"><span class="glyphicon glyphicon-calendar"></span>@article.PostedOn</p>
+            <a href="@Url.Action("Details", "Articles", new { Id = article.Id })"><h3>@article.Title</h3></a>
+            <p class="text-muted"><span class="glyphicon glyphicon-calendar"></span>&nbsp;@article.PostedOn</p>
+            <p class="text-muted">
+                <span class="glyphicon glyphicon-inbox"></span>
+                <a href="/Articles/Category/@article.Category" >&nbsp;@article.Category</a>
+            </p>
             <p>
                 @article.Contetnt.Substring(0, 100);
                 @if (article.Contetnt.Length > 100)
                 {
-                   <span>... <a href="#">Read More</a></span>
+                    <span>... @Html.ActionLink("Read More", "Details/" + article.Id, "Articles")</span>
                 }
-            </p><p class="text-muted">Presented by <a href="#">@article.User.UserName</a></p>
+            </p><p class="text-muted">Presented by @article.User</p>
 
         </div>
     </div>
-    <hr/>
+    <hr />
 }

@@ -8,10 +8,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-3">
-            <div class="list-group list-group">
-                <h4 class="">Category</h4>
-                <a href="#" class="list-group-item"><span class="badge">3</span> Second item</a>
-            </div>
+            @{Html.RenderAction("GetCategoriesPartial");}
         </div>
         <div class="col-md-9">
             @Html.Partial("_ArticlesListPartial", Model)

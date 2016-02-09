@@ -3,6 +3,7 @@
     using System.Web.Mvc;
     using AutoMapper.QueryableExtensions;
     using Models.Articles;
+    using Models.ArticlesCategories;
     using PagedList;
     using VinylC.Services.Data.Contracts;
 
@@ -11,10 +12,12 @@
         private const int PageSize = 3;
 
         private IArticleService articles;
+        private IAtricleCategoriesService categories;
 
-        public ArticlesController(IArticleService articles)
+        public ArticlesController(IArticleService articles, IAtricleCategoriesService categories)
         {
             this.articles = articles;
+            this.categories = categories;
         }
 
         public ActionResult All(int? page)
@@ -26,6 +29,17 @@
             int pageNumber = page ?? 1;
 
             return this.View(articles.ToPagedList(pageNumber, PageSize));
+        }
+
+        [HttpGet]
+        [ChildActionOnly]
+        public ActionResult GetCategoriesPartial()
+        {
+            var categories = this.categories
+                .AllArticleCategories()
+                .ProjectTo<ArticlesCategoriesViewModel>();
+
+            return this.PartialView("_CategoriesPartial", categories);
         }
     }
 }

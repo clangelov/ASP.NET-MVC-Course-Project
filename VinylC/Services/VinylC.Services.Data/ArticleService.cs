@@ -1,5 +1,6 @@
 ﻿namespace VinylC.Services.Data
 {
+    using System;
     using System.Linq;
     using VinylC.Data.Models;
     using VinylC.Data.Repositories;
@@ -16,7 +17,15 @@
 
         public IQueryable<Article> AllArticles()
         {
-            return this.articles.All().OrderByDescending(x => x.PostedOn);
+            return this.articles.All()
+                .OrderByDescending(x => x.PostedOn);
+        }
+
+        public IQueryable<Article> AllByCategory(string category)
+        {
+            return this.articles.All()
+                .Where(a => a.AtricleCategory.Name == category)
+                .OrderByDescending(x => x.PostedOn);
         }
 
         public Article ArticleById(int id)

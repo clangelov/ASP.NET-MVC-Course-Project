@@ -4,6 +4,6 @@
     <h4 class="">Category</h4>
     @foreach (var item in Model)
     {
-        <a href="#" class="list-group-item"><span class="badge">@item.Count</span>@item.Name</a>
+        <a href="/Articles/Category?category=@item.Name"  class="list-group-item"><span class="badge">@item.Count</span>@item.Name</a>
     }    
 </div>

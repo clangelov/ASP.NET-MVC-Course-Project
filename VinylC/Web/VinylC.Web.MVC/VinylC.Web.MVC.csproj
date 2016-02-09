@@ -280,6 +280,7 @@
     <Content Include="Views\Articles\_PagingPartial.cshtml" />
     <Content Include="Views\Articles\_ArticlesListPartial.cshtml" />
     <Content Include="Views\Articles\_CategoriesPartial.cshtml" />
+    <Content Include="Views\Articles\Category.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

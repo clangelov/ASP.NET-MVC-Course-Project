@@ -7,6 +7,8 @@
     {
         IQueryable<Article> AllArticles();
 
+        IQueryable<Article> AllByCategory(string category);
+
         Article ArticleById(int id);
     }
 }

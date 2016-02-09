@@ -31,6 +31,17 @@
             return this.View(articles.ToPagedList(pageNumber, PageSize));
         }
 
+        public ActionResult Category(string category, int? page)
+        {
+            var articles = this.articles
+                .AllByCategory(category)
+                .ProjectTo<ArticlesListViewModel>();
+
+            int pageNumber = page ?? 1;
+
+            return this.View(articles.ToPagedList(pageNumber, PageSize));
+        }
+
         [HttpGet]
         [ChildActionOnly]
         public ActionResult GetCategoriesPartial()

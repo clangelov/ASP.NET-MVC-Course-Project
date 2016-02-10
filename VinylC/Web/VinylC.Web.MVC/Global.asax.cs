@@ -16,5 +16,9 @@
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             DatabaseConfig.Initialize();
         }
+
+        protected void Application_EndRequest()
+        {
+        }
     }
 }

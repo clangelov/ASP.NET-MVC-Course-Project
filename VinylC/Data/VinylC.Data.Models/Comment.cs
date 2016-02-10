@@ -2,6 +2,7 @@
 {
     using System;
     using System.ComponentModel.DataAnnotations;
+    using Common.Constants;
 
     public class Comment
     {
@@ -9,6 +10,7 @@
         public int Id { get; set; }
 
         [Required]
+        [MaxLength(ModelConstants.CommentLenght)]
         public string Replay { get; set; }
 
         [Required]

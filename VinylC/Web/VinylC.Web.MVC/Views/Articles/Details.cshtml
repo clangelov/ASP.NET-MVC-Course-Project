@@ -1,5 +1,9 @@
 ﻿@model VinylC.Web.MVC.Models.Articles.ArticlesDetailsViewModel
 
+@section styles {
+    @Styles.Render("~/Content/comments")
+}
+
 @{
     ViewBag.Title = "Details";
 }
@@ -14,8 +18,7 @@
                 <div class="col-md-3"><i class="glyphicon glyphicon-user"></i>&nbsp;@Html.DisplayFor(m => m.User, "Author")</div>
                 <div class="col-md-4"><i class="glyphicon glyphicon-calendar"></i>&nbsp;@Html.DisplayFor(m => m.PostedOn, "Posted")</div>
                 <div class="col-md-2">
-                    <i class="glyphicon glyphicon-comment"></i>&nbsp;<a href="#ArticleDetailsComments">@Model.Comments.Count()</a>
-                    
+                    <a href="#ArticleDetailsComments"><i class="glyphicon glyphicon-comment"></i>&nbsp;@Model.Comments.Count()</a>
                 </div>
                 <div class="col-md-3"><span class="glyphicon glyphicon-inbox"></span><a href="/Articles/Category/@Model.Category">&nbsp;@Model.Category</a></div>
             </div>
@@ -36,9 +39,48 @@
         </div>
     </div>
 </div>
-<div class="jumbotron" id="ArticleDetailsComments">
-    <h2>Comments!!!</h2>
+<div class="container" id="ArticleDetailsComments">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="detailBox">
+                <div class="titleBox">
+                    <label>Comments Box</label>
+                </div>
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <form class="form-inline" role="form">
+                        <div class="form-group">
+                            <input id="formWidth" class="form-control" type="text" placeholder="Your comments" />
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-default">Add</button>
+                        </div>
+                    </form>
+                    <br />
+                }
+                <div class="actionBox">
+                    <ul class="commentList">
+                        @foreach (var com in Model.Comments)
+                        {
+                            <li>
+                                <div class="commenterImage">
+                                    <img src=@com.User.Avatar />
+                                </div>
+                                <div class="commentText">
+                                    <p class="">@com.Replay</p>
+                                    <span class="date sub-text">Poseted on @com.PostedOn</span>
+                                    <span class="date sub-text">By @com.User.UserName</span>
+                                </div>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+
+
 
 @section Scripts {
     <script type="text/javascript">

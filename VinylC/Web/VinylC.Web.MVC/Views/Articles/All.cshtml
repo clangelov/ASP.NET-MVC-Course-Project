@@ -1,6 +1,11 @@
 ﻿@using VinylC.Web.MVC.Models;
 @using PagedList.Mvc;
 @model PagedList.IPagedList<VinylC.Web.MVC.Models.Articles.ArticlesListViewModel>
+
+@section styles {
+    @Styles.Render("~/bundles/pagedlist")
+}
+
 @{
     ViewBag.Title = "All";
 }

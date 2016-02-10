@@ -1,0 +1,91 @@
+﻿@model VinylC.Web.MVC.Models.Articles.ArticlesDetailsViewModel
+
+@section styles {
+    @Styles.Render("~/Content/comments")
+}
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <hr />
+            <h1 class="text-center">@Html.DisplayFor(m => m.Title, "Title")</h1>
+            <hr />
+            <div class="text-info row">
+                <div class="col-md-3"><i class="glyphicon glyphicon-user"></i>&nbsp;@Html.DisplayFor(m => m.User, "Author")</div>
+                <div class="col-md-4"><i class="glyphicon glyphicon-calendar"></i>&nbsp;@Html.DisplayFor(m => m.PostedOn, "Posted")</div>
+                <div class="col-md-2">
+                    <a href="#ArticleDetailsComments"><i class="glyphicon glyphicon-comment"></i>&nbsp;@Model.Comments.Count()</a>
+                </div>
+                <div class="col-md-3"><span class="glyphicon glyphicon-inbox"></span><a href="/Articles/Category/@Model.Category">&nbsp;@Model.Category</a></div>
+            </div>
+            <hr />
+            <div>
+                <img src="@Model.ImageUrl" class="img-responsive center-block">
+            </div>
+            <hr />
+            <div>
+                @Html.DisplayFor(m => m.Contetnt, "Content")
+            </div>
+            <hr />
+        </div>
+        <div class="col-md-2">
+            <br />
+            <br />
+            <button id="ReturnBackButon" class="btn btn-lg btn-default">Go Back</button>
+        </div>
+    </div>
+</div>
+<div class="container" id="ArticleDetailsComments">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="detailBox">
+                <div class="titleBox">
+                    <label>Comments Box</label>
+                </div>
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <form class="form-inline" role="form">
+                        <div class="form-group">
+                            <input id="formWidth" class="form-control" type="text" placeholder="Your comments" />
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-default">Add</button>
+                        </div>
+                    </form>
+                    <br />
+                }
+                <div class="actionBox">
+                    <ul class="commentList">
+                        @foreach (var com in Model.Comments)
+                        {
+                            <li>
+                                <div class="commenterImage">
+                                    <img src=@com.User.Avatar />
+                                </div>
+                                <div class="commentText">
+                                    <p class="">@com.Replay</p>
+                                    <span class="date sub-text">Poseted on @com.PostedOn</span>
+                                    <span class="date sub-text">By @com.User.UserName</span>
+                                </div>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    <script type="text/javascript">
+        $("#ReturnBackButon").on('click', function (ev) {
+            window.history.back(1);
+        });
+    </script>
+}

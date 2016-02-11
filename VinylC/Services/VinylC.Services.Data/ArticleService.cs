@@ -15,6 +15,15 @@
             this.articles = articles;
         }
 
+        public Article AddArticle(Article toAdd)
+        {
+            toAdd.PostedOn = DateTime.UtcNow;
+            this.articles.Add(toAdd);
+            this.articles.SaveChanges();
+
+            return toAdd;
+        }
+
         public IQueryable<Article> AllArticles()
         {
             return this.articles.All()

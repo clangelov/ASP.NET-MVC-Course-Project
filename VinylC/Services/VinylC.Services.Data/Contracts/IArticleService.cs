@@ -10,5 +10,7 @@
         IQueryable<Article> AllByCategory(string category);
 
         IQueryable<Article> ArticleById(int id);
+
+        Article AddArticle(Article toAdd);
     }
 }

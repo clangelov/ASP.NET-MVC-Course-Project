@@ -63,6 +63,9 @@
     @Scripts.Render("~/bundles/jqueryajax")
     <script type="text/javascript">
         $("#ReturnBackButon").on('click', function (ev) {
+            if (document.referrer.indexOf('Create') > -1) {
+                return;
+            }
             window.history.back(1);
         });
     </script>

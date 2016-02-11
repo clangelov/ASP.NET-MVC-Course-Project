@@ -2,21 +2,21 @@
 {
     using System.Linq;
     using System.Web.Mvc;
+    using Base;
     using Data.Models;
     using Models;
     using Services.Data.Contracts;
 
     [Authorize]
-    public class ArticleController : Controller
+    public class ArticleController : BaseController
     {
         private IArticleService articlesService;
-        private IUserService userService;
         private IAtricleCategoriesService articleCategoriesService;
 
-        public ArticleController(IUserService userService, IArticleService articlesService, IAtricleCategoriesService articleCategoriesService)
+        public ArticleController(IUserService usersService, IArticleService articlesService, IAtricleCategoriesService articleCategoriesService)
+            :base(usersService)
         {
             this.articlesService = articlesService;
-            this.userService = userService;
             this.articleCategoriesService = articleCategoriesService;
         }
         
@@ -45,7 +45,7 @@
             {
                 var newArticle = AutoMapper.Mapper.Map<Article>(model);
 
-                newArticle.UserId = this.userService.GetUser(this.User.Identity.Name).Id;
+                newArticle.UserId = this.CurrentUser.Id;
 
                 var result = this.articlesService.AddArticle(newArticle);
 

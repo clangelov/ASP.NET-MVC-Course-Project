@@ -4,20 +4,20 @@
     using System.Web.Mvc;
     using AutoMapper;
     using AutoMapper.QueryableExtensions;
+    using Base;
     using MVC.Models.Comments;
     using VinylC.Data.Models;
     using VinylC.Services.Data.Contracts;
     using VinylC.Web.MVC.Areas.Private.Models;
 
-    public class CommentController : Controller
+    public class CommentController : BaseController
     {
         private ICommentService commentsService;
-        private IUserService userService;
 
         public CommentController(IUserService userService, ICommentService commentsService)
+            :base(userService)
         {
             this.commentsService = commentsService;
-            this.userService = userService;
         }
 
         [HttpPost]
@@ -28,15 +28,13 @@
             if (model != null && ModelState.IsValid)
             {
                 var comment = Mapper.Map<Comment>(model);
-                // TODO: extract it in a basic Controller
-                var currentUser = this.userService.GetUser(this.User.Identity.Name);
-                comment.UserId = currentUser.Id;
+                comment.UserId = this.CurrentUser.Id;
 
                 comment = this.commentsService.AddNew(comment);
 
                 var viewModel = Mapper.Map<CommentsViewModel>(comment);
-                viewModel.Avatar = currentUser.Avatar;
-                viewModel.UserName = currentUser.UserName;
+                viewModel.Avatar = this.CurrentUser.Avatar;
+                viewModel.UserName = this.CurrentUser.UserName;
 
                 return this.PartialView("~/Areas/Private/Views/Comment/_SingleCommentPartial.cshtml", viewModel);
             }

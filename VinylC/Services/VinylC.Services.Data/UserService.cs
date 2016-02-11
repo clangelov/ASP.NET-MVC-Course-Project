@@ -14,14 +14,14 @@
             this.users = users;
         }      
 
-        public string GetUserId(string name)
+        public User GetUser(string name)
         {
             var userAsObject = this.users
                .All()
                .Where(x => x.UserName == name)
                .FirstOrDefault();
 
-            return userAsObject.Id;
+            return userAsObject;
         }
     }
 }

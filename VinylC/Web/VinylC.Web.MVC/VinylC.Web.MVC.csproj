@@ -204,6 +204,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Private\Controllers\CommentController.cs" />
     <Compile Include="Areas\Private\Models\AddCommentViewModel.cs" />
+    <Compile Include="Areas\Private\Models\ArticlesCategoriesViewModel.cs" />
     <Compile Include="Areas\Private\PrivateAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ArticlesController.cs" />
@@ -216,7 +217,6 @@
     <Compile Include="Infrastructure\Mappings\IHaveCustomMappings.cs" />
     <Compile Include="Infrastructure\Mappings\IMapFrom.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\ArticlesCategories\ArticlesCategoriesViewModel.cs" />
     <Compile Include="Models\Articles\ArticlesDetailsViewModel.cs" />
     <Compile Include="Models\Articles\ArticlesListViewModel.cs" />
     <Compile Include="Models\Comments\CommentsViewModel.cs" />

@@ -27,13 +27,15 @@
             if (model != null && ModelState.IsValid)
             {
                 var comment = Mapper.Map<Comment>(model);
-                comment.UserId = this.userService.GetUserId(this.User.Identity.Name);
+                // TODO: extract it in a basic Controller
+                var currentUser = this.userService.GetUser(this.User.Identity.Name);
+                comment.UserId = currentUser.Id;
 
                 comment = this.commentsService.AddNew(comment);
 
-                // TODO fix View Model
-                // TODO fix HTML its ugly
                 var viewModel = Mapper.Map<CommentsViewModel>(comment);
+                viewModel.Avatar = currentUser.Avatar;
+                viewModel.UserName = currentUser.UserName;
 
                 return this.PartialView("~/Areas/Private/Views/Comment/_SingleCommentPartial.cshtml", viewModel);
             }

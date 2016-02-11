@@ -52,9 +52,9 @@
                 {
                     @Html.Partial("~/Areas/Private/Views/Comment/_AddCommentPartial.cshtml", new AddCommentViewModel(Model.Id))
                 }
-                <div id="comments">
-                    @{Html.RenderAction("GetPageCommentsPartial", "Comment", new { area = "Private", articleId = Model.Id });}
-                </div>                
+
+                @{Html.RenderAction("GetPageCommentsPartial", "Comment", new { area = "Private", articleId = Model.Id });}
+
             </div>
         </div>
     </div>

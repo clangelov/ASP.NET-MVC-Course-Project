@@ -70,3 +70,7 @@
     border-top:1px dotted #bbb;
     padding:10px;
 }
+
+.myCustomTextBox {
+    margin-left: 25%;
+}

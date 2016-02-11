@@ -34,5 +34,11 @@
                 .Where(c => c.ArticleId == id)
                 .OrderByDescending(c => c.PostedOn);
         }
+
+        public void DeleteCommentById(int id)
+        {
+            this.comments.Delete(id);
+            this.comments.SaveChanges();
+        }
     }
 }

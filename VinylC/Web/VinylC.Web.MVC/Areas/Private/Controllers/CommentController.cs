@@ -22,6 +22,7 @@
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public ActionResult AddComment(AddCommentViewModel model)
         {
             if (model != null && ModelState.IsValid)
@@ -41,6 +42,14 @@
             }
 
             throw new HttpException(400, "Invalid Comment");
+        }
+
+        [Authorize]
+        public ActionResult Delete(int id, int articleID)
+        {
+            this.commentsService.DeleteCommentById(id);
+
+            return this.GetPageCommentsPartial(articleID);
         }
 
         public ActionResult GetPageCommentsPartial(int articleId)

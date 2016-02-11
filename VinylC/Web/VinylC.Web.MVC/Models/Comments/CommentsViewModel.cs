@@ -7,6 +7,8 @@
 
     public class CommentsViewModel : IMapFrom<Comment>, IHaveCustomMappings
     {
+        public int Id { get; set; }
+
         public string Replay { get; set; }
 
         public DateTime PostedOn { get; set; }
@@ -14,6 +16,8 @@
         public string Avatar { get; set; }
 
         public string UserName { get; set; }
+
+        public int ArticleId { get; set; }
 
         public void CreateMappings(IConfiguration configuration)
         {

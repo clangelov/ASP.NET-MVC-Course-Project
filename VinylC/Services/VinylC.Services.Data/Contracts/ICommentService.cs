@@ -8,5 +8,7 @@
         Comment AddNew(Comment toAdd);
 
         IQueryable<Comment> AllByArticel(int id);
+
+        void DeleteCommentById(int id);
     }
 }

@@ -18,20 +18,27 @@
         public int Id { get; set; }
 
         [Required]
+        [MinLength(ModelConstants.ArticleTitleMinLength)]
+        [MaxLength(ModelConstants.ArticleTitleMaxLength)]
         public string Title { get; set; }
 
         [Required]
+        [MinLength(ModelConstants.ArticleMinLength)]
+        [MaxLength(ModelConstants.ArticleMaxLength)]
         public string Contetnt { get; set; }
 
         [Required]
         public DateTime PostedOn { get; set; }
 
+        [Url]
         public string ImageUrl { get; set; }
 
+        [Required]
         public string UserId { get; set; }
 
         public virtual User User { get; set; }
 
+        [Required]
         public int AtricleCategoryId { get; set; }
 
         public virtual AtricleCategory AtricleCategory { get; set; }

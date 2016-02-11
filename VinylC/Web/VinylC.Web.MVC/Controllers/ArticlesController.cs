@@ -4,9 +4,9 @@
     using System.Linq;
     using System.Net;
     using System.Web.Mvc;
+    using Areas.Private.Models;
     using AutoMapper.QueryableExtensions;
     using Models.Articles;
-    using Models.ArticlesCategories;
     using PagedList;
     using VinylC.Services.Data.Contracts;
 

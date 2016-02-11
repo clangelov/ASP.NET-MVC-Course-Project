@@ -1,0 +1,15 @@
+﻿@model IEnumerable<VinylC.Web.MVC.Models.Comments.CommentsViewModel>
+
+<div>
+    <div class="actionBox">
+        <ul class="commentList" id="comments">
+            @foreach (var com in Model)
+            {
+                @Html.Partial("_SingleCommentPartial", com)
+            }
+        </ul>
+    </div>
+</div>
+
+
+

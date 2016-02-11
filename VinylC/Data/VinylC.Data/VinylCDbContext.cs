@@ -21,5 +21,16 @@
         {
             return new VinylCDbContext();
         }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder
+                .Entity<Article>()
+                .HasMany(x => x.Comments)
+                .WithRequired(x => x.Article)
+                .WillCascadeOnDelete(true);
+
+            base.OnModelCreating(modelBuilder);
+        }
     }
 }

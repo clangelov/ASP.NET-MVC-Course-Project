@@ -1,0 +1,28 @@
+﻿@model VinylC.Web.MVC.Models.Comments.CommentsViewModel
+
+<div class="actionBox">
+    <ul class="commentList">
+        <li>
+            <div class="commenterImage">
+                <img src=@Model.Avatar />
+            </div>
+            <div class="commentText">
+                <p class="">@Model.Replay</p>
+                <span class="date sub-text">Poseted on @Model.PostedOn</span>
+                <span class="date sub-text">By @Model.UserName</span>                
+            </div>
+            @if (User.Identity.IsAuthenticated && User.Identity.Name == Model.UserName)
+            {
+                <span>
+                    @Ajax.ActionLink("Delete", "Delete", "Comment", new { area = "Private", id = Model.Id, articleID = Model.ArticleId }, new AjaxOptions
+                                       {
+                                           HttpMethod = "GET",
+                                           InsertionMode = InsertionMode.Replace,
+                                           UpdateTargetId = "comments"
+                                       }, new { @class = "pull-right date sub-text" })
+            </span>
+            }
+        </li>
+    </ul>
+</div>
+

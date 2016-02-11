@@ -1,4 +1,4 @@
-﻿namespace VinylC.Web.MVC.Models.ArticlesCategories
+﻿namespace VinylC.Web.MVC.Areas.Private.Models
 {
     using AutoMapper;
     using VinylC.Data.Models;

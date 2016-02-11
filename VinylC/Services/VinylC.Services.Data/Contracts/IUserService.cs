@@ -1,7 +1,9 @@
 ﻿namespace VinylC.Services.Data.Contracts
 {
+    using VinylC.Data.Models;
+
     public interface IUserService
     {
-        string GetUserId(string name);
+        User GetUser(string name);
     }
 }

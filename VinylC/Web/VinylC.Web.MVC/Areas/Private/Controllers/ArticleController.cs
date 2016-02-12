@@ -4,7 +4,7 @@
     using System.Web.Mvc;
     using Base;
     using Data.Models;
-    using Models;
+    using Models.Articles;
     using Services.Data.Contracts;
 
     [Authorize]

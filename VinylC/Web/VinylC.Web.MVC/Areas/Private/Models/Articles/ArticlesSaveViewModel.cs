@@ -1,4 +1,4 @@
-﻿namespace VinylC.Web.MVC.Areas.Private.Models
+﻿namespace VinylC.Web.MVC.Areas.Private.Models.Articles
 {
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;

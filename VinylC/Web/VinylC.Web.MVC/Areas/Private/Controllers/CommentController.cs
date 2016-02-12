@@ -8,7 +8,7 @@
     using MVC.Models.Comments;
     using VinylC.Data.Models;
     using VinylC.Services.Data.Contracts;
-    using VinylC.Web.MVC.Areas.Private.Models;
+    using VinylC.Web.MVC.Areas.Private.Models.Articles;
 
     public class CommentController : BaseController
     {

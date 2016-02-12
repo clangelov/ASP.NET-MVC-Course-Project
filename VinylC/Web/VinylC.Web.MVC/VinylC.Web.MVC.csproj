@@ -205,9 +205,10 @@
     <Compile Include="Areas\Private\Controllers\ArticleController.cs" />
     <Compile Include="Areas\Private\Controllers\Base\BaseController.cs" />
     <Compile Include="Areas\Private\Controllers\CommentController.cs" />
-    <Compile Include="Areas\Private\Models\AddCommentViewModel.cs" />
-    <Compile Include="Areas\Private\Models\ArticlesCategoriesViewModel.cs" />
-    <Compile Include="Areas\Private\Models\ArticlesSaveViewModel.cs" />
+    <Compile Include="Areas\Private\Controllers\ProductController.cs" />
+    <Compile Include="Areas\Private\Models\Articles\AddCommentViewModel.cs" />
+    <Compile Include="Areas\Private\Models\Articles\ArticlesCategoriesViewModel.cs" />
+    <Compile Include="Areas\Private\Models\Articles\ArticlesSaveViewModel.cs" />
     <Compile Include="Areas\Private\PrivateAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ArticlesController.cs" />
@@ -312,7 +313,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Private\Models\Products\" />
     <Folder Include="Areas\Private\Views\Base\" />
+    <Folder Include="Areas\Private\Views\Product\" />
     <Folder Include="Areas\Private\Views\Shared\" />
     <Folder Include="Content\Products\" />
   </ItemGroup>

@@ -4,7 +4,7 @@
     using System.Linq;
     using System.Net;
     using System.Web.Mvc;
-    using Areas.Private.Models;
+    using Areas.Private.Models.Articles;
     using AutoMapper.QueryableExtensions;
     using Models.Articles;
     using PagedList;

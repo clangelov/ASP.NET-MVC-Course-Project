@@ -30,3 +30,7 @@ img.img-responsive {
 .full-width {
     width: 100%;
 }
+
+.img-responsive.limit-picture-height {
+    max-height: 200px;
+}

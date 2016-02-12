@@ -10,7 +10,7 @@
 
         [Required]
         [Range(ModelConstants.MinRating, ModelConstants.MaxRating)]
-        public int Value { get; set; }
+        public float Value { get; set; }
 
         public int ProductId { get; set; }
 

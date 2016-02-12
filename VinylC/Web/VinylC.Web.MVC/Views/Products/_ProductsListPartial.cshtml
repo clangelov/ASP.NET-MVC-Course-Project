@@ -9,7 +9,7 @@
                 <img src="@product.Picture" alt=@product.Title class="img-responsive limit-picture-height">
                 <div class="caption">
                     <h4 class="pull-right">$ @product.Price</h4><h4><a href=@Url.Action("Details", "Products", new { Id = product.Id })>@product.Title</a></h4><p>
-                        @product.Description.Substring(0, 90);
+                        @product.Description.Substring(0, 90)
                         @if (product.Description.Length > 90)
                         {
                             <span>...</span>

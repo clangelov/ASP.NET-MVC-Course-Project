@@ -306,6 +306,7 @@
     <Content Include="Views\Products\All.cshtml" />
     <Content Include="Views\Products\_PagingPartial.cshtml" />
     <Content Include="Views\Products\_ProductsListPartial.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\CreateProductPageButton.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

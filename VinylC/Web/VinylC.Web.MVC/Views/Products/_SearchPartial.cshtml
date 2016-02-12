@@ -1,0 +1,6 @@
+﻿@using (Html.BeginForm("All", null, FormMethod.Get))
+{
+    <div class="form-group">
+        @Html.TextBox("SearchString", "", new { @class = "form-control", name = "searchString", placeholder = "Search products by title..." })
+    </div>
+}

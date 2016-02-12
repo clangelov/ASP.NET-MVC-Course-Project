@@ -16,9 +16,9 @@
         </div>
         <div class="row">
             <div class="col-md-3">
-                Search
+                @Html.Partial("_SearchPartial")
             </div>
-            <div class="col-md-4 col-md-offset-1">
+            <div class="col-md-4 col-md-offset-1" id="search-options">
                 <ul class="nav navbar-nav">
                     <li class="navbar-brand">Sorty by:</li>
                     <li>@Html.ActionLink("Date", "All", "Products", new { sortOrder = ViewBag.DateSortParm }, null)</li>
@@ -38,8 +38,13 @@
         </div>
         <div class="row">
             @Html.Partial("_ProductsListPartial", Model)
+            <div id="ajax-search-results"></div>
             @Html.Partial("_PagingPartial", Model)
         </div>
     </div>
 </section>
-
+@section scripts {
+    @Scripts.Render("~/bundles/jqueryajax")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/customsearch")
+}

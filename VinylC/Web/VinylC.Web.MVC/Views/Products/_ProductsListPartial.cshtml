@@ -1,7 +1,7 @@
 ﻿@using PagedList.Mvc;
 @model PagedList.IPagedList<VinylC.Web.MVC.Models.Products.ProductsListViewModel>
 
-<div class="row">
+<div class="row" id="all-pages">
     @foreach (var product in Model)
     {
         <div class="col-sm-4 col-lg-4 col-md-4">

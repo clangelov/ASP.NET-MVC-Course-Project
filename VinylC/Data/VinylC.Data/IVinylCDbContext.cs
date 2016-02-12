@@ -14,6 +14,10 @@
 
         IDbSet<Comment> Comments { get; set; }
 
+        IDbSet<Rating> Ratings { get; set; }
+
+        IDbSet<Product> Products { get; set; }
+
         DbSet<TEntity> Set<TEntity>() where TEntity : class;
 
         DbEntityEntry<TEntity> Entry<TEntity>(TEntity entity) where TEntity : class;

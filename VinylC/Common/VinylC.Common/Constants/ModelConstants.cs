@@ -13,5 +13,9 @@
         public const int ArticleTitleMaxLength = 150;
 
         public const int ArticleTitleMinLength = 5;
+
+        public const int MinRating = 1;
+
+        public const int MaxRating = 5;
     }
 }

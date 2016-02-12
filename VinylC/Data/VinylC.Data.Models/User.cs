@@ -12,11 +12,15 @@
     {
         private ICollection<Article> atricles;
         private ICollection<Comment> comments;
+        private ICollection<Product> products;
+        private ICollection<Rating> ratings;
 
         public User()
         {
             this.atricles = new HashSet<Article>();
             this.comments = new HashSet<Comment>();
+            this.products = new HashSet<Product>();
+            this.ratings = new HashSet<Rating>();
         }
 
         [RegularExpression(ModelConstants.ValidateUrl)]
@@ -40,6 +44,18 @@
         {
             get { return this.comments; }
             set { this.comments = value; }
+        }
+
+        public virtual ICollection<Product> Products
+        {
+            get { return this.products; }
+            set { this.products = value; }
+        }
+
+        public virtual ICollection<Rating> Ratings
+        {
+            get { return this.ratings; }
+            set { this.ratings = value; }
         }
     }
 }

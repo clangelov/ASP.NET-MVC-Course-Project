@@ -243,7 +243,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Scripts\App\add-rating.js" />
     <Content Include="Scripts\App\back-button-logic.js" />
     <Content Include="Scripts\App\profilePictureDisplay.js" />
     <Content Include="Scripts\App\searchAjaxScript.js" />

@@ -209,6 +209,8 @@
     <Compile Include="Areas\Private\Models\Articles\AddCommentViewModel.cs" />
     <Compile Include="Areas\Private\Models\Articles\ArticlesCategoriesViewModel.cs" />
     <Compile Include="Areas\Private\Models\Articles\ArticlesSaveViewModel.cs" />
+    <Compile Include="Areas\Private\Models\Products\ProductDetailsViewModel.cs" />
+    <Compile Include="Areas\Private\Models\Ratings\AddRatingVewModel.cs" />
     <Compile Include="Areas\Private\PrivateAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ArticlesController.cs" />
@@ -241,6 +243,8 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Scripts\App\add-rating.js" />
+    <Content Include="Scripts\App\back-button-logic.js" />
     <Content Include="Scripts\App\profilePictureDisplay.js" />
     <Content Include="Scripts\App\searchAjaxScript.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -251,6 +255,9 @@
     <Content Include="Areas\Private\Views\Comment\_ArticleCommentsPartial.cshtml" />
     <Content Include="Areas\Private\Views\Comment\_SingleCommentPartial.cshtml" />
     <Content Include="Areas\Private\Views\Article\Create.cshtml" />
+    <Content Include="Areas\Private\Views\Product\Details.cshtml" />
+    <Content Include="Areas\Private\Views\Product\_ProductRatingPartial.cshtml" />
+    <Content Include="Areas\Private\Views\Product\_ProductCurrentRatingPartial.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -313,9 +320,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Private\Models\Products\" />
     <Folder Include="Areas\Private\Views\Base\" />
-    <Folder Include="Areas\Private\Views\Product\" />
     <Folder Include="Areas\Private\Views\Shared\" />
     <Folder Include="Content\Products\" />
   </ItemGroup>

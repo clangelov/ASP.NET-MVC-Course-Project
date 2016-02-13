@@ -1,0 +1,64 @@
+﻿@using VinylC.Web.MVC.Areas.Private.Models.Ratings
+@model VinylC.Web.MVC.Areas.Private.Models.Products.ProductDetailsViewModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div class="jumbotron">
+    <div class="row">
+        <div class="row">
+            <div class="col-md-10">
+                <h2 class="text-center text-primary">@Html.DisplayFor(model => model.Title)</h2>
+            </div>
+            <div class="col-md-2"><button id="ReturnBackButon" class="btn btn-lg btn-default pull-right">Go Back</button></div>
+        </div>
+        <br />
+        <div class="col-md-4">
+            <img src=@Html.DisplayFor(model => model.Picture) alt=@Html.DisplayFor(model => model.Title) class="img-responsive" />
+        </div>
+        <div class="col-md-4 text-center">
+            <div class="list-group">
+                <div class="list-group-item active">
+                    <span>Rate this product</span>
+                </div>
+                <div class="list-group-item">
+                    @{Html.RenderAction("GetProductRating", "Product", new { rating = Model.Rating });}
+                </div>
+                <div class="list-group-item">
+                    @Html.Partial("~/Areas/Private/Views/Product/_ProductRatingPartial.cshtml", new AddRatingVewModel(Model.Id, Model.UserId))
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 text-center">
+            <div class="list-group">
+                <div class="list-group-item active">
+                    <span>Info</span>
+                </div>
+                <div class="list-group-item">
+                    <span class="glyphicon glyphicon-usd" aria-hidden="true"></span>
+                    <span>@Html.DisplayFor(model => model.Price)</span>
+                </div>
+                <div class="list-group-item">
+                    <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
+                    <span>@Html.DisplayFor(model => model.ReleaseDate)</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr />
+    <div class="row">
+        @Html.DisplayFor(model => model.Description)
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryajax")
+    @Scripts.Render("~/bundles/backbuttonlogic")
+    <script type="text/javascript">
+        function OnAjaxRequestRatingSuccess(data) {
+            var result = +data;
+            $("#current-rating").html(result.toFixed(2));
+        }
+    </script>
+}

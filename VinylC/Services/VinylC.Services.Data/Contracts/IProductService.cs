@@ -9,6 +9,8 @@
         
         IQueryable<Product> ProductById(int id);
 
-        Product AddArticle(Product toAdd);
+        Product AddProduct(Product toAdd);
+
+        float AddRating(int productId, int rating, string userID);
     }
 }

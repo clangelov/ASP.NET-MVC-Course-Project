@@ -1,28 +1,22 @@
-﻿namespace VinylC.Data.Models
+﻿namespace VinylC.Web.MVC.Areas.Private.Models.Products
 {
     using System;
-    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
-    using Common.Constants;
+    using System.ComponentModel.DataAnnotations.Schema;
+    using System.Web;
+    using Infrastructure.Validation;
+    using VinylC.Common.Constants;
+    using VinylC.Data.Models;
+    using VinylC.Web.MVC.Infrastructure.Mappings;
 
-    public class Product
+    public class ProductSaveViewModel : IMapFrom<Product>
     {
-        private ICollection<Rating> ratings;
-
-        public Product()
-        {
-            this.ratings = new HashSet<Rating>();
-        }
-
-        [Key]
-        public int Id { get; set; }
-
         [Required]
         [MinLength(ModelConstants.TitleMinLength)]
         [MaxLength(ModelConstants.TitleMaxLength)]
         public string Title { get; set; }
 
-        [Required]
+        [UIHint("MultiLineText")]
         [MinLength(ModelConstants.ContentMinLength)]
         [MaxLength(ModelConstants.ContentMaxLength)]
         public string Description { get; set; }
@@ -31,19 +25,17 @@
         [Range(0, ModelConstants.ProductMaxValue)]
         public decimal Price { get; set; }
 
-        [Required]
         public string Picture { get; set; }
 
+        [NotMapped]
+        [ValidateFile(ErrorMessage = "Please select a JPEG image smaller than 1MB")]
+        public HttpPostedFileBase File { get; set; }
+
+        [DataType(DataType.Date)]
+        [Display(Name = "Release Date")]
+        [CustomDateRange]
         public DateTime ReleaseDate { get; set; }
 
         public string UserId { get; set; }
-
-        public virtual User User { get; set; }        
-
-        public virtual ICollection<Rating> Ratings
-        {
-            get { return this.ratings; }
-            set { this.ratings = value; }
-        }
     }
 }

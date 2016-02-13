@@ -66,6 +66,7 @@
 
         [HttpGet]
         [ChildActionOnly]
+        [OutputCache (Duration = 5 * 60)]
         public ActionResult GetCategoriesPartial()
         {
             var categories = this.categories

@@ -9,6 +9,7 @@
     {
         protected void Application_Start()
         {
+            ViewEnginesConfig.RegisterViewEngines();
             AutoMapperConfig.RegisterMappings(Assemblies.MVCProject);
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);

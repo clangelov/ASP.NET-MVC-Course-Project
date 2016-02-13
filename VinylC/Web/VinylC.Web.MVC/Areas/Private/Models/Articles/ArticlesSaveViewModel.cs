@@ -11,14 +11,14 @@
     public class ArticlesSaveViewModel : IMapFrom<Article>
     {
         [Required]
-        [MinLength(ModelConstants.ArticleTitleMinLength)]
-        [MaxLength(ModelConstants.ArticleTitleMaxLength)]
+        [MinLength(ModelConstants.TitleMinLength)]
+        [MaxLength(ModelConstants.TitleMaxLength)]
         public string Title { get; set; }
 
         [Required]
         [UIHint("MultiLineText")]
-        [MinLength(ModelConstants.ArticleMinLength)]
-        [MaxLength(ModelConstants.ArticleMaxLength)]
+        [MinLength(ModelConstants.ContentMinLength)]
+        [MaxLength(ModelConstants.ContentMaxLength)]
         public string Contetnt { get; set; }
 
         public string UserId { get; set; }

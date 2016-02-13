@@ -202,6 +202,7 @@
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="App_Start\ViewEnginesConfig.cs" />
     <Compile Include="Areas\Private\Controllers\ArticleController.cs" />
     <Compile Include="Areas\Private\Controllers\Base\BaseController.cs" />
     <Compile Include="Areas\Private\Controllers\CommentController.cs" />
@@ -210,6 +211,7 @@
     <Compile Include="Areas\Private\Models\Articles\ArticlesCategoriesViewModel.cs" />
     <Compile Include="Areas\Private\Models\Articles\ArticlesSaveViewModel.cs" />
     <Compile Include="Areas\Private\Models\Products\ProductDetailsViewModel.cs" />
+    <Compile Include="Areas\Private\Models\Products\ProductSaveViewModel.cs" />
     <Compile Include="Areas\Private\Models\Ratings\AddRatingVewModel.cs" />
     <Compile Include="Areas\Private\PrivateAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
@@ -223,6 +225,8 @@
     </Compile>
     <Compile Include="Infrastructure\Mappings\IHaveCustomMappings.cs" />
     <Compile Include="Infrastructure\Mappings\IMapFrom.cs" />
+    <Compile Include="Infrastructure\Validation\CustomDateRangeAttribute.cs" />
+    <Compile Include="Infrastructure\Validation\ValidateFileAttribute.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Articles\ArticlesDetailsViewModel.cs" />
     <Compile Include="Models\Articles\ArticlesListViewModel.cs" />
@@ -257,6 +261,7 @@
     <Content Include="Areas\Private\Views\Product\Details.cshtml" />
     <Content Include="Areas\Private\Views\Product\_ProductRatingPartial.cshtml" />
     <Content Include="Areas\Private\Views\Product\_ProductCurrentRatingPartial.cshtml" />
+    <Content Include="Areas\Private\Views\Product\Create.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

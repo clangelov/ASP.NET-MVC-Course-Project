@@ -1,0 +1,10 @@
+﻿@using PagedList.Mvc;
+@model PagedList.IPagedList<VinylC.Web.MVC.Models.Products.ProductsListViewModel>
+
+<div class="row text-center" id="products-pagination">
+    Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+    @Html.PagedListPager(Model, page => Url.Action("All", new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
+</div>
+
+
+

@@ -1,0 +1,31 @@
+﻿@using PagedList.Mvc;
+@model PagedList.IPagedList<VinylC.Web.MVC.Models.Products.ProductsListViewModel>
+
+<div class="row" id="all-pages">
+    @foreach (var product in Model)
+    {
+        <div class="col-sm-4 col-lg-4 col-md-4">
+            <div class="thumbnail">
+                <img src="@product.Picture" alt=@product.Title class="img-responsive limit-picture-height">
+                <div class="caption">
+                    <h4 class="pull-right">$ @product.Price</h4><h4><a href=@Url.Action("Details", "Product", new { id = product.Id, Area = "Private" })>@product.Title</a></h4><p>
+                        @product.Description.Substring(0, 90)
+                        @if (product.Description.Length > 90)
+                        {
+                            <span>...</span>
+                        }
+                    </p>
+                </div>
+                <div class="caption">
+                    <p class="pull-right text-muted">Expected: @product.ReleaseDate</p>
+                    <p>
+                        @for (int i = 0; i < (int)product.Rating; i++)
+                        {
+                            <span class="glyphicon glyphicon-star"></span>
+                        }
+                    </p>
+                </div>
+            </div>
+        </div>
+    }
+</div>

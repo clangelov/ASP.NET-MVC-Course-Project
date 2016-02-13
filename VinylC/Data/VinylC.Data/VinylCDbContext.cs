@@ -17,6 +17,10 @@
 
         public virtual IDbSet<Comment> Comments { get; set; }
 
+        public virtual IDbSet<Rating> Ratings { get; set; }
+
+        public virtual IDbSet<Product> Products { get; set; }
+
         public static VinylCDbContext Create()
         {
             return new VinylCDbContext();

@@ -1,0 +1,76 @@
+﻿@using VinylC.Web.MVC.Areas.Private.Models.Ratings
+@model VinylC.Web.MVC.Areas.Private.Models.Products.ProductDetailsViewModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+@section styles {
+    @Styles.Render("~/Content/comments")
+}
+
+<div class="jumbotron">
+    <div class="row">
+        <div class="row">
+            <div class="col-md-10">
+                <h2 class="text-center text-primary">@Html.DisplayFor(model => model.Title)</h2>
+            </div>
+            <div class="col-md-2"><button id="ReturnBackButon" class="btn btn-lg btn-default pull-right">Go Back</button></div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3 col-sm-offset-6 text-right">
+                <small class="glyphicon glyphicon-usd text-muted" aria-hidden="true"></small>
+                <small class="text-muted">@Html.DisplayFor(model => model.Price)</small>
+            </div>
+            <div class="col-sm-3">
+                <small class="glyphicon glyphicon-calendar text-muted" aria-hidden="true"></small>
+                <small class="text-muted">@Html.DisplayFor(model => model.ReleaseDate)</small>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <img src=@Html.DisplayFor(model => model.Picture) alt=@Html.DisplayFor(model => model.Title) class="img-responsive" />
+        </div>
+        <div class="col-md-6 text-center">
+            <div class="list-group">
+                <div class="list-group-item active">
+                    <span>Rate this product</span>
+                </div>
+                <div class="list-group-item">
+                    @{Html.RenderAction("GetProductRating", "Product", new { rating = Model.Rating });}
+                </div>
+                <div class="list-group-item">
+                    @Html.Partial("~/Areas/Private/Views/Product/_ProductRatingPartial.cshtml", new AddRatingVewModel(Model.Id, Model.UserId))
+                </div>
+            </div>
+            <div class="list-group">
+                <div class="list-group-item active">
+                    <span>Posted By</span>
+                </div>
+                <div class="list-group-item">
+                    <div class="commenterImage">
+                        <img src=@Model.UserAvatar alt="@Model.UserName" />
+                    </div>
+                    <span>@Html.DisplayFor(model => model.UserName)</span>
+                </div>
+                <div class="list-group-item">
+                    <button class="btn btn-success text-center full-width">Send Message</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr />
+    <div class="row tab-pane">
+        @Html.DisplayFor(model => model.Description)
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryajax")
+    @Scripts.Render("~/bundles/backbuttonlogic")
+    <script type="text/javascript">
+        function OnAjaxRequestRatingSuccess(data) {
+            var result = +data;
+            $("#current-rating").html(result.toFixed(2));
+        }
+    </script>
+}

@@ -4,7 +4,7 @@
     using System.Linq;
     using System.Net;
     using System.Web.Mvc;
-    using Areas.Private.Models;
+    using Areas.Private.Models.Articles;
     using AutoMapper.QueryableExtensions;
     using Models.Articles;
     using PagedList;
@@ -66,6 +66,7 @@
 
         [HttpGet]
         [ChildActionOnly]
+        [OutputCache (Duration = 5 * 60)]
         public ActionResult GetCategoriesPartial()
         {
             var categories = this.categories

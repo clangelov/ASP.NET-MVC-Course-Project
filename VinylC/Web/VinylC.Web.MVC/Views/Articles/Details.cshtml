@@ -1,4 +1,4 @@
-﻿@using VinylC.Web.MVC.Areas.Private.Models
+﻿@using VinylC.Web.MVC.Areas.Private.Models.Articles
 
 @model VinylC.Web.MVC.Models.Articles.ArticlesDetailsViewModel
 
@@ -59,14 +59,8 @@
         </div>
     </div>
 </div>
+
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryajax")
-    <script type="text/javascript">
-        $("#ReturnBackButon").on('click', function (ev) {
-            if (document.referrer.indexOf('Create') > -1) {
-                return;
-            }
-            window.history.back(1);
-        });
-    </script>
+    @Scripts.Render("~/bundles/backbuttonlogic")
 }

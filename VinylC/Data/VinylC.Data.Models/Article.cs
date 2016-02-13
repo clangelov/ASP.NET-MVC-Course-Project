@@ -18,13 +18,13 @@
         public int Id { get; set; }
 
         [Required]
-        [MinLength(ModelConstants.ArticleTitleMinLength)]
-        [MaxLength(ModelConstants.ArticleTitleMaxLength)]
+        [MinLength(ModelConstants.TitleMinLength)]
+        [MaxLength(ModelConstants.TitleMaxLength)]
         public string Title { get; set; }
 
         [Required]
-        [MinLength(ModelConstants.ArticleMinLength)]
-        [MaxLength(ModelConstants.ArticleMaxLength)]
+        [MinLength(ModelConstants.ContentMinLength)]
+        [MaxLength(ModelConstants.ContentMaxLength)]
         public string Contetnt { get; set; }
 
         [Required]

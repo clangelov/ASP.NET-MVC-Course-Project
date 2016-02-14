@@ -14,7 +14,7 @@
 
         public MessageSaveViewModel(string toUserId, string toUserName)
         {
-            this.ToId = toUserId;
+            this.ToUserId = toUserId;
             this.ToUserName = toUserName;
         }
 
@@ -23,9 +23,9 @@
         [MaxLength(ModelConstants.MessageMaxLenght)]
         public string Content { get; set; }
 
-        public string FromId { get; set; }
+        public string FromUserId { get; set; }
 
-        public string ToId { get; set; }
+        public string ToUserId { get; set; }
 
         [NotMapped]
         public string ToUserName { get; set; }

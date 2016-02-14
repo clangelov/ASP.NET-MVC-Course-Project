@@ -17,7 +17,10 @@
 
         public Message AddMessage(Message toAdd)
         {
-            throw new NotImplementedException();
+            this.messages.Add(toAdd);
+            this.messages.SaveChanges();
+
+            return toAdd;
         }
 
         public IQueryable<Message> AllToUserId(string id)

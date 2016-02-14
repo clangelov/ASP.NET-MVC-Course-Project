@@ -236,3 +236,4 @@ _Pvt_Extensions
 .fake/
 
 /VinylC/Web/VinylC.Web.MVC/Content/Products
+/VinylC/Web/VinylC.Web.MVC/Content/Products/*

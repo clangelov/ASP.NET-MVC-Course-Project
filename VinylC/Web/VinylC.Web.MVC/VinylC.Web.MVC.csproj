@@ -214,10 +214,12 @@
     <Compile Include="Areas\Private\Controllers\ArticleController.cs" />
     <Compile Include="Areas\Private\Controllers\Base\BaseController.cs" />
     <Compile Include="Areas\Private\Controllers\CommentController.cs" />
+    <Compile Include="Areas\Private\Controllers\MessageController.cs" />
     <Compile Include="Areas\Private\Controllers\ProductController.cs" />
     <Compile Include="Areas\Private\Models\Articles\AddCommentViewModel.cs" />
     <Compile Include="Areas\Private\Models\Articles\ArticlesCategoriesViewModel.cs" />
     <Compile Include="Areas\Private\Models\Articles\ArticlesSaveViewModel.cs" />
+    <Compile Include="Areas\Private\Models\Messages\MessageSaveViewModel.cs" />
     <Compile Include="Areas\Private\Models\Products\ProductDetailsViewModel.cs" />
     <Compile Include="Areas\Private\Models\Products\ProductSaveViewModel.cs" />
     <Compile Include="Areas\Private\Models\Ratings\AddRatingVewModel.cs" />
@@ -274,6 +276,7 @@
     <Content Include="Areas\Private\Views\Product\_ProductRatingPartial.cshtml" />
     <Content Include="Areas\Private\Views\Product\_ProductCurrentRatingPartial.cshtml" />
     <Content Include="Areas\Private\Views\Product\Create.cshtml" />
+    <Content Include="Areas\Private\Views\Message\Send.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

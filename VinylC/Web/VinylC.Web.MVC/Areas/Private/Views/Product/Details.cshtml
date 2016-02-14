@@ -1,4 +1,5 @@
 ﻿@using VinylC.Web.MVC.Areas.Private.Models.Ratings
+@using VinylC.Web.MVC.Areas.Private.Models.Messages
 @model VinylC.Web.MVC.Areas.Private.Models.Products.ProductDetailsViewModel
 
 @{
@@ -53,7 +54,10 @@
                     <span>@Html.DisplayFor(model => model.UserName)</span>
                 </div>
                 <div class="list-group-item">
-                    <button class="btn btn-success text-center full-width">Send Message</button>
+                    @if (Model.UserName != User.Identity.Name)
+                    {
+                        @Html.ActionLink("Send Message", "Send", "Message", new MessageSaveViewModel(Model.UserId, Model.UserName), new { @class = "btn btn-success text-center full-width" })
+                    }                    
                 </div>
             </div>
         </div>

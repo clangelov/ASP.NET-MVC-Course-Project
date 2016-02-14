@@ -47,6 +47,10 @@ namespace VinylC.Web.MVC
 
             bundles.Add(new StyleBundle("~/bundles/pagedlist").Include(
                     "~/Content/PagedList.css"));
+
+            // homevideo
+            bundles.Add(new StyleBundle("~/bundles/homevideo").Include(
+                    "~/Content/homeVideo.css"));
         }
     }
 }

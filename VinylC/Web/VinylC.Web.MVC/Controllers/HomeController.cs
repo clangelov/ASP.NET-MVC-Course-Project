@@ -1,30 +1,39 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-
-namespace VinylC.Web.MVC.Controllers
+﻿namespace VinylC.Web.MVC.Controllers
 {
+    using System.Web.Mvc;
+    using Services.Data.Contracts;
+    using Services.Web.Contracts;
+
     public class HomeController : Controller
     {
+        private ICacheService cacheService;
+        private IProductService productsService;
+        private IArticleService articlesService;
+
+        public HomeController(ICacheService cacheService, IProductService productsService, IArticleService articlesService)
+        {
+            this.cacheService = cacheService;
+            this.productsService = productsService;
+            this.articlesService = articlesService;
+        }
+
         public ActionResult Index()
         {
             return View();
         }
 
-        public ActionResult About()
+        [HttpGet]
+        [ChildActionOnly]
+        public ActionResult GetArticlesPartial()
         {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
+            return null;
         }
 
-        public ActionResult Contact()
+        [HttpGet]
+        [ChildActionOnly]
+        public ActionResult GetProductsPartial()
         {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
+            return null;
         }
     }
 }

@@ -1,6 +1,5 @@
 ﻿namespace VinylC.Services.Data
 {
-    using System;
     using System.Linq;
     using VinylC.Data.Models;
     using VinylC.Data.Repositories;
@@ -54,6 +53,14 @@
         public IQueryable<Product> AllProducts()
         {
             return this.products.All().OrderBy(x => x.ReleaseDate);
+        }
+
+        public IQueryable<Product> GetHighestRated(int count)
+        {
+            return this.products.All()
+                .OrderByDescending(p => p.Ratings.Any() ? p.Ratings.Average(r => r.Value) : 0)
+                .ThenBy(p => p.ReleaseDate)
+                .Take(count);
         }
 
         public IQueryable<Product> ProductById(int id)

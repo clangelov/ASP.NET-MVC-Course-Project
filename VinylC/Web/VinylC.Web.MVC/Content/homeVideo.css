@@ -41,3 +41,7 @@
 #home-header {
     display: inline-block;
 }
+
+.home-transperent-element {
+    background: rgba(255,255,255,0.23);
+}

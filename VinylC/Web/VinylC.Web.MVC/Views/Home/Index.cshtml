@@ -10,5 +10,10 @@
     <source src="~/Content/Videos/vinyl.mp4" type="video/mp4">
 </video>
 <div class="jumbotron transparentBlock">
-    <h1>Vinyl Community</h1>
+    <h1 id="home-header">Vinyl Community</h1>
+    <button id="control-video">Pause Video</button>
 </div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/video")
+}

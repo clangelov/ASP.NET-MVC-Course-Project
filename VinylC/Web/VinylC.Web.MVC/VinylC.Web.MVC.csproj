@@ -265,6 +265,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\App\back-button-logic.js" />
     <Content Include="Scripts\App\chat.js" />
+    <Content Include="Scripts\App\control-video.js" />
     <Content Include="Scripts\App\profilePictureDisplay.js" />
     <Content Include="Scripts\App\searchAjaxScript.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -377,6 +378,10 @@
     <ProjectReference Include="..\..\Services\VinylC.Services.Data\VinylC.Services.Data.csproj">
       <Project>{35563881-46a3-4853-aaa2-1e35e805b834}</Project>
       <Name>VinylC.Services.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Services\VinylC.Services.Web\VinylC.Services.Web.csproj">
+      <Project>{256a96f6-0661-4d74-8250-a52ec74694c8}</Project>
+      <Name>VinylC.Services.Web</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

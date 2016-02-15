@@ -1,0 +1,14 @@
+﻿@model VinylC.Web.MVC.Areas.Private.Models.Users.UserViewModel
+
+<div class="thumbnail">
+    <img alt="avatar" class="img-responsive " src=@Html.DisplayFor(model => model.Avatar)>
+    <h4 class="text-center">Personal information:</h4>
+    <ul class="list-group">
+        <li class="list-group-item text-center"><span class="list-group-item-text">@Html.DisplayFor(model => model.UserName)</span></li>
+        <li class="list-group-item"><span class="badge">@Html.DisplayFor(model => model.AriclesPosted)</span>@Html.DisplayNameFor(model => model.AriclesPosted)</li>
+        <li class="list-group-item"><span class="badge">@Html.DisplayFor(model => model.CommentsMade)</span>@Html.DisplayNameFor(model => model.CommentsMade)</li>
+        <li class="list-group-item"><span class="badge">@Html.DisplayFor(model => model.ProductsAdded)</span>@Html.DisplayNameFor(model => model.ProductsAdded)</li>
+        <li class="list-group-item"><span class="badge">@Html.DisplayFor(model => model.ProductsRated)</span>@Html.DisplayNameFor(model => model.ProductsRated)</li>
+    </ul>
+</div>
+

@@ -7,6 +7,8 @@
     {
         IQueryable<Message> AllToUserId(string id);
 
+        IQueryable<Message> AllFromUserId(string id);
+
         Message AddMessage(Message toAdd);
 
         void DeleteMessage(int id);

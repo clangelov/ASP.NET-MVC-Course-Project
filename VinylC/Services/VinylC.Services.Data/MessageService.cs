@@ -23,9 +23,14 @@
             return toAdd;
         }
 
-        public IQueryable<Message> AllToUserId(string id)
+        public IQueryable<Message> AllFromUserId(string id)
         {
             return this.messages.All().Where(m => m.FromUserId == id);
+        }
+
+        public IQueryable<Message> AllToUserId(string id)
+        {
+            return this.messages.All().Where(m => m.ToUserId == id && m.IsRead == false);
         }
 
         public void DeleteMessage(int id)

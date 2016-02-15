@@ -216,13 +216,16 @@
     <Compile Include="Areas\Private\Controllers\CommentController.cs" />
     <Compile Include="Areas\Private\Controllers\MessageController.cs" />
     <Compile Include="Areas\Private\Controllers\ProductController.cs" />
+    <Compile Include="Areas\Private\Controllers\UserController.cs" />
     <Compile Include="Areas\Private\Models\Articles\AddCommentViewModel.cs" />
     <Compile Include="Areas\Private\Models\Articles\ArticlesCategoriesViewModel.cs" />
     <Compile Include="Areas\Private\Models\Articles\ArticlesSaveViewModel.cs" />
     <Compile Include="Areas\Private\Models\Messages\MessageSaveViewModel.cs" />
+    <Compile Include="Areas\Private\Models\Messages\MessageViewModel.cs" />
     <Compile Include="Areas\Private\Models\Products\ProductDetailsViewModel.cs" />
     <Compile Include="Areas\Private\Models\Products\ProductSaveViewModel.cs" />
     <Compile Include="Areas\Private\Models\Ratings\AddRatingVewModel.cs" />
+    <Compile Include="Areas\Private\Models\Users\UserViewModel.cs" />
     <Compile Include="Areas\Private\PrivateAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ArticlesController.cs" />
@@ -277,6 +280,10 @@
     <Content Include="Areas\Private\Views\Product\_ProductCurrentRatingPartial.cshtml" />
     <Content Include="Areas\Private\Views\Product\Create.cshtml" />
     <Content Include="Areas\Private\Views\Message\Send.cshtml" />
+    <Content Include="Areas\Private\Views\User\Index.cshtml" />
+    <Content Include="Areas\Private\Views\User\_InboxMessagesPartial.cshtml" />
+    <Content Include="Areas\Private\Views\User\_OutboxMessagesPartial.cshtml" />
+    <Content Include="Areas\Private\Views\User\_UserProfilePartial.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -342,7 +349,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Private\Views\Base\" />
     <Folder Include="Areas\Private\Views\Shared\" />
     <Folder Include="Content\Products\" />
     <Folder Include="Content\Videos\" />

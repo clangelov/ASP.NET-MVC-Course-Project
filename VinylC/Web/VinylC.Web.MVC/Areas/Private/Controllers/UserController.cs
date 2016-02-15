@@ -1,5 +1,6 @@
 ﻿namespace VinylC.Web.MVC.Areas.Private.Controllers
 {
+    using System;
     using System.Linq;
     using System.Web.Mvc;
     using AutoMapper.QueryableExtensions;
@@ -14,11 +15,11 @@
         private IMessageService messageService;
 
         public UserController(IUserService userService, IMessageService messageService)
-            :base(userService)
+            : base(userService)
         {
             this.messageService = messageService;
         }
-        
+
         public ActionResult Index()
         {
             return View();
@@ -28,12 +29,23 @@
         [ChildActionOnly]
         public ActionResult GetUserProfilePartial()
         {
-            var model = this.usersService
-              .UserById(this.CurrentUser.Id)
-              .ProjectTo<UserViewModel>()
-              .FirstOrDefault();
+            var userName = this.CurrentUser.UserName;
 
-            return this.PartialView("_UserProfilePartial", model);
+            if (this.HttpContext.Cache[userName] == null)
+            {
+                HttpContext.Cache.Insert(
+                    userName,
+                    this.usersService
+                        .UserById(this.CurrentUser.Id)
+                        .ProjectTo<UserViewModel>()
+                        .FirstOrDefault(),               
+                        null,                            
+                        DateTime.Now.AddMinutes(10),     
+                        TimeSpan.Zero
+                    );
+            }
+
+            return this.PartialView("_UserProfilePartial", (UserViewModel)this.HttpContext.Cache[userName]);
         }
 
         [HttpGet]

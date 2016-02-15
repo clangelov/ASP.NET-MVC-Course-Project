@@ -18,6 +18,8 @@
 
         IDbSet<Product> Products { get; set; }
 
+        IDbSet<Message> Messages { get; set; }
+
         DbSet<TEntity> Set<TEntity>() where TEntity : class;
 
         DbEntityEntry<TEntity> Entry<TEntity>(TEntity entity) where TEntity : class;

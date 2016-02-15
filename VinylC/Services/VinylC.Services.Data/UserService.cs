@@ -1,5 +1,6 @@
 ﻿namespace VinylC.Services.Data
 {
+    using System;
     using System.Linq;
     using VinylC.Data.Models;
     using VinylC.Data.Repositories;
@@ -22,6 +23,11 @@
                .FirstOrDefault();
 
             return userAsObject;
+        }
+
+        public IQueryable<User> UserById(string id)
+        {
+            return this.users.All().Where(x => x.Id == id);
         }
     }
 }

@@ -21,6 +21,8 @@
 
         public virtual IDbSet<Product> Products { get; set; }
 
+        public virtual IDbSet<Message> Messages { get; set; }
+
         public static VinylCDbContext Create()
         {
             return new VinylCDbContext();
@@ -33,6 +35,18 @@
                 .HasMany(x => x.Comments)
                 .WithRequired(x => x.Article)
                 .WillCascadeOnDelete(true);
+
+            modelBuilder
+                .Entity<Message>()
+                .HasOptional(c => c.ToUser)
+                .WithMany()
+                .WillCascadeOnDelete(false);
+
+            modelBuilder
+                .Entity<Message>()
+                .HasOptional(c => c.FromUser)
+                .WithMany()
+                .WillCascadeOnDelete(false);
 
             base.OnModelCreating(modelBuilder);
         }

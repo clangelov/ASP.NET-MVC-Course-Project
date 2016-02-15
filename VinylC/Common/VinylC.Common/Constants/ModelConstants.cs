@@ -6,6 +6,8 @@
 
         public const int CommentLenght = 200;
 
+        public const int MessageMaxLenght = 200;
+
         public const int ContentMaxLength = 5000;
 
         public const int ContentMinLength = 100;

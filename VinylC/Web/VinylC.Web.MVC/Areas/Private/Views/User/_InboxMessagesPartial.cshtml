@@ -1,0 +1,39 @@
+﻿@model IEnumerable<VinylC.Web.MVC.Areas.Private.Models.Messages.MessageViewModel>
+
+@{
+    ViewBag.Title = "_InboxMessagesPartial";
+}
+
+@using VinylC.Web.MVC.Areas.Private.Models.Messages
+@if (Model.Count() > 0)
+{
+    foreach (var message in Model)
+    {
+        <div class="list-group-item">
+            <div class="alert alert-dismissible alert-info">
+                <span>
+                    @Html.ActionLink("Send Message", "Send", "Message", new MessageSaveViewModel(message.ToUserId, message.From), new { @class = "pull-right label label-warning" })
+                </span>                
+                <span>
+                    @Ajax.ActionLink("Mark As Read", "Update", "User", new { id = message.Id}, new AjaxOptions
+               {
+                   HttpMethod = "GET",
+                   InsertionMode = InsertionMode.Replace,
+                   UpdateTargetId = "inbox"
+               }, new { @class = "pull-right label label-info" })
+                </span>
+
+                <p>@message.Content</p>
+                <p class="text-muted">
+                    <span class="glyphicon glyphicon-user"></span> @message.From
+                </p>
+            </div>
+        </div>
+    }
+}
+else
+{
+    <div class="list-group-item">
+        <h3 class="text-info">No messages</h3>
+    </div>
+}

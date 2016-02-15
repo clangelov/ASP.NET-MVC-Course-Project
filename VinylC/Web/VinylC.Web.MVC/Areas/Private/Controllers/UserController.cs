@@ -26,7 +26,6 @@
 
         [HttpGet]
         [ChildActionOnly]
-        [OutputCache(Duration = 5 * 60)]
         public ActionResult GetUserProfilePartial()
         {
             var model = this.usersService
@@ -57,6 +56,14 @@
                 .ProjectTo<MessageViewModel>();
 
             return this.PartialView("_OutboxMessagesPartial", model);
+        }
+
+        [Authorize]
+        public ActionResult Update(int id)
+        {
+            this.messageService.MarkAsRead(id);
+
+            return this.GetInboxMessagesPartial();
         }
     }
 }

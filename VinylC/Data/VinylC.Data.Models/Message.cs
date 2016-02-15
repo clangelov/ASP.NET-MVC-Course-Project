@@ -1,5 +1,6 @@
 ﻿namespace VinylC.Data.Models
 {
+    using System;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using Common.Constants;
@@ -14,6 +15,8 @@
         public string Content { get; set; }
 
         public bool IsRead { get; set; }
+
+        public DateTime Posted { get; set; }
 
         [ForeignKey("FromUser")]
         public string FromUserId { get; set; }

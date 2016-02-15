@@ -17,6 +17,8 @@
 
         public Message AddMessage(Message toAdd)
         {
+            toAdd.Posted = DateTime.UtcNow;
+
             this.messages.Add(toAdd);
             this.messages.SaveChanges();
 
@@ -25,17 +27,30 @@
 
         public IQueryable<Message> AllFromUserId(string id)
         {
-            return this.messages.All().Where(m => m.FromUserId == id);
+            return this.messages.All()
+                .Where(m => m.FromUserId == id)
+                .OrderByDescending(m => m.Posted);
         }
 
         public IQueryable<Message> AllToUserId(string id)
         {
-            return this.messages.All().Where(m => m.ToUserId == id && m.IsRead == false);
+            return this.messages.All()
+                .Where(m => m.ToUserId == id && m.IsRead == false)
+                .OrderByDescending(m => m.Posted);
         }
 
-        public void DeleteMessage(int id)
+        public void MarkAsRead(int id)
         {
-            throw new NotImplementedException();
+            var messageToUpdate = this.messages.All()
+                .Where(x => x.Id == id)
+                .FirstOrDefault();
+
+            if (messageToUpdate != null)
+            {
+                messageToUpdate.IsRead = true;
+                this.messages.Update(messageToUpdate);
+                this.messages.SaveChanges();
+            }
         }
     }
 }

@@ -11,6 +11,6 @@
 
         Message AddMessage(Message toAdd);
 
-        void DeleteMessage(int id);
+        void MarkAsRead(int id);
     }
 }

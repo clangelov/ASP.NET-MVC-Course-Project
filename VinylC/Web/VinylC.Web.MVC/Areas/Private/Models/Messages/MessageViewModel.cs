@@ -14,11 +14,16 @@
 
         public string To { get; set; }
 
+        public string ToUserId { get; set; }
+
+        public bool IsRead { get; set; }
+
         public void CreateMappings(IConfiguration configuration)
         {
             configuration.CreateMap<Message, MessageViewModel>()
                .ForMember(u => u.From, opts => opts.MapFrom(u => u.FromUser.UserName))
-               .ForMember(u => u.To, opts => opts.MapFrom(u => u.ToUser.UserName));
+               .ForMember(u => u.To, opts => opts.MapFrom(u => u.ToUser.UserName))
+               .ForMember(u => u.ToUserId, opts => opts.MapFrom(u => u.FromUser.Id));
         }
     }
 }

@@ -10,6 +10,15 @@
     {
         <div class="list-group-item">
             <div class="alert alert-dismissible alert-info">
+                @if (message.IsRead == true)
+                {
+                    <span class="pull-right label label-default">Seen</span>
+                }
+                else
+                {
+                    <span class="pull-right label label-warning">Not Seen</span>
+
+                }
                 <p>@message.Content</p>
                 <p class="text-muted">
                     <span class="glyphicon glyphicon-user"></span> @message.To

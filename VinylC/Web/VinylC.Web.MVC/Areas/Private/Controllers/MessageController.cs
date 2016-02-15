@@ -35,7 +35,7 @@
 
                 var result = this.messageService.AddMessage(newMessage);
 
-                return this.RedirectToAction("All", "Products", new { area = ""});
+                return this.RedirectToAction("Index", "User", new { area = "Private"});
             }
 
             return this.View(model);

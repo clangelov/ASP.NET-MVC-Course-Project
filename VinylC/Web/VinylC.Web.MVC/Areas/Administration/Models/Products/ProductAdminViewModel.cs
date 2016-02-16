@@ -2,8 +2,6 @@
 {
     using System;
     using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel.DataAnnotations.Schema;
-    using System.Web;
     using Infrastructure.Validation;
     using VinylC.Common.Constants;
     using VinylC.Data.Models;
@@ -28,9 +26,6 @@
         public decimal Price { get; set; }
 
         public string Picture { get; set; }
-
-        [NotMapped]
-        public HttpPostedFileBase File { get; set; }
 
         [DataType(DataType.Date)]
         [Display(Name = "Release Date")]

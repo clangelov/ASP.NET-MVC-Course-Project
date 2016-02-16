@@ -465,6 +465,7 @@
     <Content Include="Views\Chat\Index.cshtml" />
     <Content Include="Views\Home\_SimpleArticlesPartial.cshtml" />
     <Content Include="Views\Home\_SimpleProductsPartial.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\AutocompleteSearch.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

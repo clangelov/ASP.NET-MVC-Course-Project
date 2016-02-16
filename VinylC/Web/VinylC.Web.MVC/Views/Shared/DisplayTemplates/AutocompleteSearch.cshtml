@@ -1,0 +1,9 @@
+﻿@(Html.Kendo().AutoComplete()
+        .Name("booksTitleAutoComplete")
+        .DataTextField("Title")
+        .Filter("contains")
+        .BindTo(Model)
+        .Placeholder("Search By Title")
+        .Template("<a href='/Articles/Details/#=data.Id#'>#=data.Title#</a>")
+)
+

@@ -42,5 +42,13 @@
             return this.articles.All()
                 .Where(x => x.Id == id);
         }
+
+        public IQueryable<Article> MostCommented(int count)
+        {
+            return this.articles.All()
+                .OrderByDescending(a => a.Comments.Count)
+                .ThenByDescending(a => a.PostedOn)
+                .Take(count);
+        }
     }
 }

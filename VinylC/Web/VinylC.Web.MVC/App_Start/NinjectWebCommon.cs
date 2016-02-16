@@ -13,7 +13,8 @@ namespace VinylC.Web.MVC.App_Start
     using Ninject;
     using Ninject.Extensions.Conventions;
     using Ninject.Web.Common;
-
+    using Services.Web;
+    using Services.Web.Contracts;
     public static class NinjectWebCommon 
     {
         private static readonly Bootstrapper bootstrapper = new Bootstrapper();
@@ -65,6 +66,7 @@ namespace VinylC.Web.MVC.App_Start
         private static void RegisterServices(IKernel kernel)
         {
             kernel.Bind<IVinylCDbContext>().To<VinylCDbContext>().InRequestScope();
+            kernel.Bind<ICacheService>().To<HttpCacheService>();
             kernel.Bind(typeof(IRepository<>)).To(typeof(GenericRepository<>));
             kernel.Bind(b => b
                 .From(Assemblies.DataServices)

@@ -25,6 +25,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{39248B13
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VinylC.Tests.Web", "Tests\VinylC.Tests.Web\VinylC.Tests.Web.csproj", "{2010358B-02D3-45E3-B190-C247E3413AFD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VinylC.Services.Web", "Services\VinylC.Services.Web\VinylC.Services.Web.csproj", "{256A96F6-0661-4D74-8250-A52EC74694C8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -55,6 +57,10 @@ Global
 		{2010358B-02D3-45E3-B190-C247E3413AFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2010358B-02D3-45E3-B190-C247E3413AFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2010358B-02D3-45E3-B190-C247E3413AFD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{256A96F6-0661-4D74-8250-A52EC74694C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{256A96F6-0661-4D74-8250-A52EC74694C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{256A96F6-0661-4D74-8250-A52EC74694C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{256A96F6-0661-4D74-8250-A52EC74694C8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -66,5 +72,6 @@ Global
 		{35563881-46A3-4853-AAA2-1E35E805B834} = {9CDB9B20-064B-4938-A975-7AAB7C4064C3}
 		{3F19166E-192C-43B7-8579-CD0AB03E82A3} = {3D2A753E-A38C-4056-9AB8-071BFF2863B8}
 		{2010358B-02D3-45E3-B190-C247E3413AFD} = {39248B13-541B-4C25-AADB-D7CDB65B86D4}
+		{256A96F6-0661-4D74-8250-A52EC74694C8} = {9CDB9B20-064B-4938-A975-7AAB7C4064C3}
 	EndGlobalSection
 EndGlobal

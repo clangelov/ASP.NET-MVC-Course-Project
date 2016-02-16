@@ -10,5 +10,31 @@
     <source src="~/Content/Videos/vinyl.mp4" type="video/mp4">
 </video>
 <div class="jumbotron transparentBlock">
-    <h1>Vinyl Community</h1>
+    <h1 id="home-header">Vinyl Community</h1>
+    <button id="control-video">Pause Video</button>
 </div>
+
+<div class="jumbotron transparentBlock">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="panel home-transperent-element">
+                <div class="panel-heading text-center">
+                    <h2 class="panel-title">Most commented Articles</h2>
+                </div>
+                @{Html.RenderAction("GetArticlesPartial");}
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="panel home-transperent-element">
+                <div class="panel-heading text-center">
+                    <h2 class="panel-title">Top Upcoming Products</h2>
+                </div>
+                @{Html.RenderAction("GetProductsPartial");}
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/video")
+}

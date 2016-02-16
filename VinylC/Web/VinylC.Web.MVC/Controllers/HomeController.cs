@@ -1,30 +1,62 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-
-namespace VinylC.Web.MVC.Controllers
+﻿namespace VinylC.Web.MVC.Controllers
 {
+    using System.Linq;
+    using System.Web.Mvc;
+    using AutoMapper.QueryableExtensions;
+    using Models.Articles;
+    using Models.Products;
+    using Services.Data.Contracts;
+    using Services.Web.Contracts;
+
     public class HomeController : Controller
     {
+        private const int ProductsCount = 5;
+        private const int TimeForCache = (5 * 60);
+
+        private ICacheService cacheService;
+        private IProductService productsService;
+        private IArticleService articlesService;
+
+        public HomeController(ICacheService cacheService, IProductService productsService, IArticleService articlesService)
+        {
+            this.cacheService = cacheService;
+            this.productsService = productsService;
+            this.articlesService = articlesService;
+        }
+
         public ActionResult Index()
         {
             return View();
         }
 
-        public ActionResult About()
+        [HttpGet]
+        [ChildActionOnly]
+        public ActionResult GetArticlesPartial()
         {
-            ViewBag.Message = "Your application description page.";
+            var articlesData =
+                this.cacheService.Get(
+                    "Articles",
+                    () => this.articlesService
+                        .MostCommented(ProductsCount)
+                        .ProjectTo<ArticleSimpleViewModel>(),
+                    TimeForCache);
 
-            return View();
+            return this.PartialView("_SimpleArticlesPartial", articlesData);
         }
 
-        public ActionResult Contact()
+        [HttpGet]
+        [ChildActionOnly]
+        public ActionResult GetProductsPartial()
         {
-            ViewBag.Message = "Your contact page.";
+            var productsData =
+                this.cacheService.Get(
+                    "Products",
+                    () => this.productsService
+                        .GetHighestRated(ProductsCount)
+                        .ProjectTo<ProductSimpleListViewModel>(),
+                    TimeForCache);
 
-            return View();
+            return this.PartialView("_SimpleProductsPartial", productsData);
         }
     }
 }

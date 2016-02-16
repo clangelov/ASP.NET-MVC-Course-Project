@@ -29,6 +29,9 @@ namespace VinylC.Web.MVC
             bundles.Add(new ScriptBundle("~/bundles/chat").Include(
                       "~/Scripts/App/chat.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/video").Include(
+                      "~/Scripts/App/control-video.js"));
+
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
             // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
@@ -48,7 +51,6 @@ namespace VinylC.Web.MVC
             bundles.Add(new StyleBundle("~/bundles/pagedlist").Include(
                     "~/Content/PagedList.css"));
 
-            // homevideo
             bundles.Add(new StyleBundle("~/bundles/homevideo").Include(
                     "~/Content/homeVideo.css"));
         }

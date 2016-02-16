@@ -11,6 +11,8 @@
 
         IQueryable<Article> ArticleById(int id);
 
+        IQueryable<Article> MostCommented(int count);
+
         Article AddArticle(Article toAdd);
     }
 }

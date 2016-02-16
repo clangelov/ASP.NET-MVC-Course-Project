@@ -1,0 +1,28 @@
+﻿@model IEnumerable<VinylC.Web.MVC.Models.Products.ProductSimpleListViewModel>
+
+@{
+    ViewBag.Title = "_SimpleProductsPartial";
+}
+
+<div class="panel-body">
+    <table class="table table-bordered">
+        <tr>
+            <th class="text-center"><small>Product</small></th>
+            <th class="text-center"><small>Rating</small></th>
+            <th class="text-center"><small>Link</small></th>
+        </tr>
+        @foreach (var product in Model)
+        {
+            <tr>
+                <td class="text-center">
+                    @product.Title
+                </td>
+                <td class="text-center">
+                    <span class="glyphicon glyphicon-star"></span>
+                    @string.Format(" {0:F2}", product.Rating)
+                </td>
+                <td class="text-center"><a href=@Url.Action("Details", "Product", new { id = product.Id, Area = "Private" })>Link</a></td>
+            </tr>
+        }
+    </table>
+</div>

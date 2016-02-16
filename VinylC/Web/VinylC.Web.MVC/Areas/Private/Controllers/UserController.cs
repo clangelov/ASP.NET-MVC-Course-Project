@@ -1,6 +1,5 @@
 ﻿namespace VinylC.Web.MVC.Areas.Private.Controllers
 {
-    using System;
     using System.Linq;
     using System.Web.Mvc;
     using AutoMapper.QueryableExtensions;
@@ -8,16 +7,19 @@
     using Models.Messages;
     using Models.Users;
     using Services.Data.Contracts;
+    using Services.Web.Contracts;
 
     [Authorize]
     public class UserController : BaseController
     {
         private IMessageService messageService;
+        private ICacheService cacheService;
 
-        public UserController(IUserService userService, IMessageService messageService)
+        public UserController(IUserService userService, IMessageService messageService, ICacheService cacheService)
             : base(userService)
         {
             this.messageService = messageService;
+            this.cacheService = cacheService;
         }
 
         public ActionResult Index()
@@ -31,21 +33,16 @@
         {
             var userName = this.CurrentUser.UserName;
 
-            if (this.HttpContext.Cache[userName] == null)
-            {
-                HttpContext.Cache.Insert(
+            var userData =
+                this.cacheService.Get(
                     userName,
-                    this.usersService
+                    () => this.usersService
                         .UserById(this.CurrentUser.Id)
                         .ProjectTo<UserViewModel>()
-                        .FirstOrDefault(),               
-                        null,                            
-                        DateTime.Now.AddMinutes(10),     
-                        TimeSpan.Zero
-                    );
-            }
+                        .FirstOrDefault(),
+                    5 * 60);
 
-            return this.PartialView("_UserProfilePartial", (UserViewModel)this.HttpContext.Cache[userName]);
+            return this.PartialView("_UserProfilePartial", userData);
         }
 
         [HttpGet]

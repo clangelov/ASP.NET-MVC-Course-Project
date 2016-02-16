@@ -11,6 +11,10 @@ namespace VinylC.Web.MVC
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/kendo")
+                .Include("~/Scripts/KendoUI/kendo.all.min.js")
+                .Include("~/Scripts/KendoUI/kendo.aspnetmvc.min.js"));
+
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));
 
@@ -53,6 +57,10 @@ namespace VinylC.Web.MVC
 
             bundles.Add(new StyleBundle("~/bundles/homevideo").Include(
                     "~/Content/homeVideo.css"));
+
+            bundles.Add(new StyleBundle("~/Content/kendo").Include(
+                      "~/Content/KendoUI/kendo.common-bootstrap.min.css",
+                      "~/Content/KendoUI/kendo.default.min.css"));
         }
     }
 }

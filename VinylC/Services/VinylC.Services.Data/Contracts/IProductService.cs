@@ -13,6 +13,10 @@
 
         Product AddProduct(Product toAdd);
 
+        IQueryable<Product> UpdateProduct(Product update);
+
+        void DeleteProduct(int id);
+
         float AddRating(int productId, int rating, string userID);
     }
 }

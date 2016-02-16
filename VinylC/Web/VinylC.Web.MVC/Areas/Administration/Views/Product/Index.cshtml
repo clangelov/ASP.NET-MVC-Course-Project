@@ -1,0 +1,37 @@
+﻿<br />
+<h2>Edit, Update or Delete Products</h2>
+@(Html.Kendo().Grid<VinylC.Web.MVC.Areas.Administration.Models.Products.ProductAdminViewModel>()
+      .Name("grid")
+      .Columns(columns =>
+      {
+          columns.Bound(c => c.Title);
+          columns.Bound(c => c.Description);
+          columns.Bound(c => c.Price);
+          columns.Bound(c => c.Picture);
+          columns.Bound(c => c.ReleaseDate);
+          columns.Command(c => c.Edit());
+          columns.Command(c => c.Destroy());
+      })
+      .ToolBar(toolbar => {
+          toolbar.Create();
+      })
+      .Editable(editable => editable.Mode(GridEditMode.PopUp))
+      .Pageable(page => page.Refresh(true))
+      .Selectable(selectable => {
+          selectable.Mode(GridSelectionMode.Single);
+          selectable.Type(GridSelectionType.Row);
+      })
+      .Sortable(sortable => {
+          sortable.SortMode(GridSortMode.SingleColumn);
+      })
+      .Filterable()
+      .Resizable(resize => resize.Columns(true))
+      .DataSource(dataSource => dataSource
+          .Ajax()
+          .Model(model => model.Id(p => p.Id))
+          .Read(read => read.Action("ProductAdminViewModels_Read", "Product"))
+          .Create(create => create.Action("ProductAdminViewModels_Create", "Product"))
+          .Update(update => update.Action("ProductAdminViewModels_Update", "Product"))
+          .Destroy(destroy => destroy.Action("ProductAdminViewModels_Destroy", "Product"))
+      )
+)

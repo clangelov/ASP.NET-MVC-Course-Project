@@ -10,9 +10,10 @@
     public class AdminSeeder : IDataSeeder
     {
         public void Seed(VinylCDbContext context)
-        {
-            const string roleName = "Admin";
+        {            
             const string masterAdminUserName = "Vm@ster";
+
+            string roleName = Roles.AdminRole;
 
             var isMasterAdminSeeded = context.Users.Any(u => u.UserName == masterAdminUserName);
 

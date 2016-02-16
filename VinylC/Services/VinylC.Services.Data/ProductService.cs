@@ -1,5 +1,6 @@
 ﻿namespace VinylC.Services.Data
 {
+    using System;
     using System.Linq;
     using VinylC.Data.Models;
     using VinylC.Data.Repositories;
@@ -55,6 +56,12 @@
             return this.products.All().OrderBy(x => x.ReleaseDate);
         }
 
+        public void DeleteProduct(int id)
+        {
+            this.products.Delete(id);
+            this.products.SaveChanges();
+        }
+
         public IQueryable<Product> GetHighestRated(int count)
         {
             return this.products.All()
@@ -66,6 +73,14 @@
         public IQueryable<Product> ProductById(int id)
         {
             return this.products.All().Where(x => x.Id == id);
+        }
+
+        public IQueryable<Product> UpdateProduct(Product update)
+        {
+            this.products.Update(update);
+            this.products.SaveChanges();
+
+            return this.products.All().Where(x => x.Id == update.Id);
         }
     }
 }

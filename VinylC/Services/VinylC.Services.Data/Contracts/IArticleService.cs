@@ -14,5 +14,9 @@
         IQueryable<Article> MostCommented(int count);
 
         Article AddArticle(Article toAdd);
+
+        IQueryable<Article> UpdateArticle(Article update);
+
+        void DeleteArticle(int id);
     }
 }

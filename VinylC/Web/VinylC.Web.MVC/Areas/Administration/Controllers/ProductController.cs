@@ -27,7 +27,7 @@
             return View();
         }
 
-        public ActionResult ProductAdminViewModels_Read([DataSourceRequest]DataSourceRequest request)
+        public ActionResult ProductsRead([DataSourceRequest]DataSourceRequest request)
         {
             var input = this.productsService
                 .AllProducts()
@@ -39,11 +39,11 @@
         }
 
         [AcceptVerbs(HttpVerbs.Post)]
-        public ActionResult ProductAdminViewModels_Create([DataSourceRequest]DataSourceRequest request, ProductAdminViewModel model)
+        public ActionResult ProductsCreate([DataSourceRequest]DataSourceRequest request, ProductAdminViewModel model)
         {
             if (ModelState.IsValid && model != null)
             {
-                var newProduct = AutoMapper.Mapper.Map<Product>(model);
+                var newProduct = Mapper.Map<Product>(model);
 
                 newProduct.UserId = this.CurrentUser.Id;
 
@@ -56,7 +56,7 @@
         }
 
         [AcceptVerbs(HttpVerbs.Post)]
-        public ActionResult ProductAdminViewModels_Update([DataSourceRequest]DataSourceRequest request, ProductAdminViewModel model)
+        public ActionResult ProductsUpdate([DataSourceRequest]DataSourceRequest request, ProductAdminViewModel model)
         {
             if (ModelState.IsValid && model != null)
             {
@@ -73,7 +73,7 @@
         }
 
         [AcceptVerbs(HttpVerbs.Post)]
-        public ActionResult ProductAdminViewModels_Destroy([DataSourceRequest]DataSourceRequest request, ProductAdminViewModel model)
+        public ActionResult ProductsDestroy([DataSourceRequest]DataSourceRequest request, ProductAdminViewModel model)
         {
             if (ModelState.IsValid && model != null)
             {

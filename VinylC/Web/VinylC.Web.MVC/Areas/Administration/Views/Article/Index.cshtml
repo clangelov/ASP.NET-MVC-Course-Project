@@ -1,27 +1,28 @@
 ﻿<br />
-<h2 class="text-center">Edit, Update or Delete Products</h2>
-@(Html.Kendo().Grid<VinylC.Web.MVC.Areas.Administration.Models.Products.ProductAdminViewModel>()
+<h2 class="text-center">Edit, Update or Delete Articles</h2>
+@(Html.Kendo().Grid<VinylC.Web.MVC.Areas.Administration.Models.Articles.ArticleAdminViewModel>()
       .Name("grid")
       .Columns(columns =>
       {
           columns.Bound(c => c.Title);
-          columns.Bound(c => c.Description);
-          columns.Bound(c => c.Price);
-          columns.Bound(c => c.Picture);
-          columns.Bound(c => c.ReleaseDate);
+          columns.Bound(c => c.Contetnt);
+          columns.Bound(c => c.ImageUrl);
           columns.Command(c => c.Edit());
           columns.Command(c => c.Destroy());
       })
-      .ToolBar(toolbar => {
+      .ToolBar(toolbar =>
+      {
           toolbar.Create();
       })
       .Editable(editable => editable.Mode(GridEditMode.PopUp))
       .Pageable(page => page.Refresh(true))
-      .Selectable(selectable => {
+      .Selectable(selectable =>
+      {
           selectable.Mode(GridSelectionMode.Single);
           selectable.Type(GridSelectionType.Row);
       })
-      .Sortable(sortable => {
+      .Sortable(sortable =>
+      {
           sortable.SortMode(GridSortMode.SingleColumn);
       })
       .Filterable()
@@ -29,9 +30,9 @@
       .DataSource(dataSource => dataSource
           .Ajax()
           .Model(model => model.Id(p => p.Id))
-          .Read(read => read.Action("ProductsRead", "Product"))
-          .Create(create => create.Action("ProductsCreate", "Product"))
-          .Update(update => update.Action("ProductsUpdate", "Product"))
-          .Destroy(destroy => destroy.Action("ProductsDestroy", "Product"))
+          .Read(read => read.Action("ArticlesRead", "Article"))
+          .Create(create => create.Action("ArticlesCreate", "Article"))
+          .Update(update => update.Action("ArticlesUpdate", "Article"))
+          .Destroy(destroy => destroy.Action("ArticlesDestroy", "Article"))
       )
 )

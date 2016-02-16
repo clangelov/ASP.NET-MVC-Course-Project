@@ -215,10 +215,11 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\ViewEnginesConfig.cs" />
     <Compile Include="Areas\Administration\AdministrationAreaRegistration.cs" />
+    <Compile Include="Areas\Administration\Controllers\ArticleController.cs" />
     <Compile Include="Areas\Administration\Controllers\Base\BaseController.cs" />
     <Compile Include="Areas\Administration\Controllers\ProductController.cs" />
     <Compile Include="Areas\Administration\Controllers\UserController.cs" />
-    <Compile Include="Areas\Administration\Models\Article\ArticleAdminViewModel.cs" />
+    <Compile Include="Areas\Administration\Models\Articles\ArticleAdminViewModel.cs" />
     <Compile Include="Areas\Administration\Models\Products\ProductAdminViewModel.cs" />
     <Compile Include="Areas\Administration\Models\Users\UserAdminViewModel.cs" />
     <Compile Include="Areas\Private\Controllers\ArticleController.cs" />
@@ -399,6 +400,8 @@
     <Content Include="Areas\Administration\Views\User\Index.cshtml" />
     <Content Include="Areas\Administration\Views\Product\Index.cshtml" />
     <Content Include="Areas\Administration\Views\Shared\EditorTemplates\ProductAdminViewModel.cshtml" />
+    <Content Include="Areas\Administration\Views\Article\Index.cshtml" />
+    <Content Include="Areas\Administration\Views\Shared\EditorTemplates\ArticleAdminViewModel.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -465,7 +468,6 @@
     <Content Include="Views\Chat\Index.cshtml" />
     <Content Include="Views\Home\_SimpleArticlesPartial.cshtml" />
     <Content Include="Views\Home\_SimpleProductsPartial.cshtml" />
-    <Content Include="Views\Shared\DisplayTemplates\AutocompleteSearch.cshtml" />
     <Content Include="Views\Articles\_SearchViewPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
@@ -474,6 +476,7 @@
     <Folder Include="Content\Products\" />
     <Folder Include="Content\Videos\" />
     <Folder Include="ExternalLibraries\" />
+    <Folder Include="Views\Article\" />
     <Folder Include="Views\Grid\" />
     <Folder Include="Views\Product\" />
     <Folder Include="Views\User\" />

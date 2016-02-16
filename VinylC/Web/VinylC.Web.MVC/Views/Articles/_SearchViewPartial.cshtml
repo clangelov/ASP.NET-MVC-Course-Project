@@ -1,3 +1,27 @@
-﻿@model IEnumerable<VinylC.Web.MVC.Models.Articles.ArticlesListViewModel>
+﻿@model VinylC.Web.MVC.Models.Articles.ArticlesListViewModel
 
-@Html.DisplayFor(b => b, "AutocompleteSearch")
+@(Html.Kendo()
+    .AutoCompleteFor(m => m.Title)
+    .Name("search-articles")
+    .MinLength(3)
+    .DataSource(source =>
+    {
+        source.Read(read =>
+        {
+            read.Action("GetSearchResults", "Articles")
+                .Data("onAdditionalData");
+        })
+        .ServerFiltering(true);
+    })
+    .Template("<a href='/Articles/Details/#=data.Id#'>#=data.Title#</a>")
+    .Placeholder("Search By Title")
+)
+
+<script>
+    function onAdditionalData() {
+        console.log($("#search-articles").val());
+        return {
+            text: $("#search-articles").val()
+        };
+    }
+</script>

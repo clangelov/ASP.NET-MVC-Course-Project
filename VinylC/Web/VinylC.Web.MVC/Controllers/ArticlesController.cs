@@ -80,11 +80,18 @@
         [ChildActionOnly]
         public ActionResult GetSearchProductsPartial()
         {
-            var articles = this.articles
-               .AllArticles()
-               .ProjectTo<ArticlesListViewModel>();
+            return this.PartialView("_SearchViewPartial");
+        }
 
-            return this.PartialView("_SearchViewPartial", articles);
+        [HttpGet]
+        public JsonResult GetSearchResults(string text)
+        {
+            var result = this.articles.AllArticles()
+                .Where(x => x.Title.ToLower().Contains(text.ToLower()))
+                .ProjectTo<ArticlesListViewModel>()
+                .ToList();
+
+            return Json(result, JsonRequestBehavior.AllowGet);
         }
 
         private IQueryable<ArticlesListViewModel> GetSorted(IQueryable<ArticlesListViewModel> allArticles, string sortOrder)

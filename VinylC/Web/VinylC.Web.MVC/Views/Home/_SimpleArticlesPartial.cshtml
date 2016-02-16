@@ -1,0 +1,28 @@
+﻿@model IEnumerable<VinylC.Web.MVC.Models.Articles.ArticleSimpleViewModel>
+
+@{
+    ViewBag.Title = "_SimpleArticlesPartial";
+}
+
+<div class="panel-body">
+    <table class="table table-bordered">
+        <tr>
+            <th class="text-center"><small>Title</small></th>
+            <th class="text-center"><small>Comments</small></th>
+            <th class="text-center"><small>Link</small></th>
+        </tr>
+        @foreach (var article in Model)
+        {
+            <tr>
+                <td class="text-center">
+                    @article.Title
+                </td>
+                <td class="text-center">
+                    <span class="glyphicon glyphicon-comment"></span>
+                    @article.CommentsCount
+                </td>
+                <td class="text-center"><a href=@Url.Action("Details", "Articles", new { Id = article.Id })>Link</a></td>
+            </tr>
+        }        
+    </table>
+</div>

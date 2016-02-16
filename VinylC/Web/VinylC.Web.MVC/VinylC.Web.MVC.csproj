@@ -244,9 +244,11 @@
     <Compile Include="Infrastructure\Validation\ValidateFileAttribute.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Articles\ArticlesDetailsViewModel.cs" />
+    <Compile Include="Models\Articles\ArticleSimpleViewModel.cs" />
     <Compile Include="Models\Articles\ArticlesListViewModel.cs" />
     <Compile Include="Models\Comments\CommentsViewModel.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Products\ProductSimpleListViewModel.cs" />
     <Compile Include="Models\Products\ProductsListViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -347,6 +349,8 @@
     <Content Include="Views\Shared\DisplayTemplates\CreateProductPageButton.cshtml" />
     <Content Include="Views\Products\_SearchPartial.cshtml" />
     <Content Include="Views\Chat\Index.cshtml" />
+    <Content Include="Views\Home\_SimpleArticlesPartial.cshtml" />
+    <Content Include="Views\Home\_SimpleProductsPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

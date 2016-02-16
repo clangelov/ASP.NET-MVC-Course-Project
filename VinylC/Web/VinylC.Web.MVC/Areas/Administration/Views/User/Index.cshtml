@@ -1,0 +1,29 @@
+﻿<br />
+@(Html.Kendo().Grid<VinylC.Web.MVC.Areas.Administration.Models.Users.UserAdminViewModel>()
+      .Name("grid")
+      .Columns(columns =>
+      {
+          columns.Bound(c => c.Avatar);
+          columns.Command(c => c.Edit());
+          columns.Command(c => c.Destroy());
+      })
+      .ToolBar(toolbar => {
+          toolbar.Create();
+      })
+      .Editable(editable => editable.Mode(GridEditMode.PopUp))
+      .Pageable(page => page.Refresh(true))
+      .Navigatable()
+      .Sortable(sortable => {
+          sortable.SortMode(GridSortMode.SingleColumn);
+      })
+      .Filterable()
+      .Scrollable()
+      .DataSource(dataSource => dataSource
+          .Ajax()
+          .Model(model => model.Id(p => p.Id))
+          .Read(read => read.Action("Users_Read", "User"))
+          .Create(create => create.Action("Users_Create", "User"))
+          .Update(update => update.Action("Users_Update", "User"))
+          .Destroy(destroy => destroy.Action("Users_Destroy", "User"))
+      )
+)

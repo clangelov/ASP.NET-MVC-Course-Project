@@ -407,6 +407,7 @@
     <Content Include="Areas\Administration\Views\Shared\EditorTemplates\UserAdminViewModel.cshtml" />
     <Content Include="Areas\Administration\Views\Category\Index.cshtml" />
     <Content Include="Areas\Administration\Views\Shared\EditorTemplates\CategoryAdminViewModel.cshtml" />
+    <Content Include="Areas\Private\Views\User\_ArchivedMessagesPartial.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

@@ -67,6 +67,18 @@
             return this.PartialView("_OutboxMessagesPartial", model);
         }
 
+        [HttpGet]
+        [ChildActionOnly]
+        public ActionResult GetArchivedMessagesPartial()
+        {
+            var model = this.messageService
+                .AllFromUserId(this.CurrentUser.Id)
+                .Where(m => m.IsRead == true)
+                .ProjectTo<MessageViewModel>();
+
+            return this.PartialView("_ArchivedMessagesPartial", model);
+        }
+
         [Authorize]
         public ActionResult Update(int id)
         {

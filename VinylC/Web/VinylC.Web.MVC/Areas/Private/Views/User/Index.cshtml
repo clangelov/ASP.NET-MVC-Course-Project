@@ -12,6 +12,7 @@
             <ul class="nav nav-tabs">
                 <li class="active"><a href="#inbox" target="_self" data-toggle="tab"><span class="glyphicon glyphicon-inbox"></span> Inbox</a></li>
                 <li class=""><a href="#sent" target="_self" data-toggle="tab"><span class="glyphicon glyphicon-user"></span> Sent</a></li>
+                <li class=""><a href="#archive" target="_self" data-toggle="tab"><span class="glyphicon glyphicon-paperclip"></span> Archived</a></li>
             </ul>
             <div class="tab-content">
                 <div id="inbox" class="tab-pane active">
@@ -22,6 +23,11 @@
                 <div id="sent" class="tab-pane">
                     <div class="list-group">
                         @{Html.RenderAction("GetOutboxMessagesPartial");}
+                    </div>
+                </div>
+                <div id="archive" class="tab-pane">
+                    <div class="list-group">
+                        @{Html.RenderAction("GetArchivedMessagesPartial");}
                     </div>
                 </div>
             </div>

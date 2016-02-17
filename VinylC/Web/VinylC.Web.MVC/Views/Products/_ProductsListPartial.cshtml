@@ -19,7 +19,7 @@
                 <div class="caption">
                     <p class="pull-right text-muted">Expected: @product.ReleaseDate</p>
                     <p>
-                        @for (int i = 0; i < (int)product.Rating; i++)
+                        @for (int i = 0; i < (int)Math.Round(product.Rating); i++)
                         {
                             <span class="glyphicon glyphicon-star"></span>
                         }

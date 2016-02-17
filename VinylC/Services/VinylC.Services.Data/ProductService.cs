@@ -28,7 +28,8 @@
 
         public float AddRating(int productId, int rating, string userID)
         {
-            if (this.ratings.All().Where(r => r.UserId == userID && r.ProductId == productId).Any())
+            
+            if (this.ratings.All().Any(r => r.UserId == userID && r.ProductId == productId))
             {
                 var myCurrentRating = this.ratings.All().Where(r => r.UserId == userID && r.ProductId == productId).FirstOrDefault();
                 myCurrentRating.Value = rating;

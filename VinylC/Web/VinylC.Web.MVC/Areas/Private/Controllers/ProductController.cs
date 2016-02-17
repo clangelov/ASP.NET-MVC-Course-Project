@@ -44,7 +44,7 @@
         {
             if (model != null && ModelState.IsValid)
             {
-                var result = this.productsService.AddRating(model.ProductId, (int)model.Value, model.UserId);
+                var result = this.productsService.AddRating(model.ProductId, (int)model.Value, this.CurrentUser.Id);
 
                 return Json(result);               
             }

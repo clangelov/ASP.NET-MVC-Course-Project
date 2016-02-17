@@ -14,7 +14,6 @@
         @Html.AntiForgeryToken()
 
         @Html.HiddenFor(m => m.ProductId)
-        @Html.HiddenFor(m => m.UserId)
         <form class="form-inline" role="form">
             <div class="form-group">
                 @Html.DropDownListFor(m => m.Value, new SelectList(

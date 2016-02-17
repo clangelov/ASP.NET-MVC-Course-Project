@@ -34,3 +34,7 @@ img.img-responsive {
 .img-responsive.limit-picture-height {
     max-height: 200px;
 }
+
+.link-custom-color {
+    color: inherit;
+}

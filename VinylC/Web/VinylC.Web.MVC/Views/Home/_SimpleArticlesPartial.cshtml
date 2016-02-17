@@ -9,20 +9,20 @@
         <tr>
             <th class="text-center"><small>Title</small></th>
             <th class="text-center"><small>Comments</small></th>
-            <th class="text-center"><small>Link</small></th>
         </tr>
         @foreach (var article in Model)
         {
             <tr>
                 <td class="text-center">
-                    @article.Title
+                    <a href=@Url.Action("Details", "Articles", new { Id = article.Id }) class="link-custom-color">
+                        @article.Title
+                    </a>
                 </td>
                 <td class="text-center">
                     <span class="glyphicon glyphicon-comment"></span>
                     @article.CommentsCount
                 </td>
-                <td class="text-center"><a href=@Url.Action("Details", "Articles", new { Id = article.Id })>Link</a></td>
             </tr>
-        }        
+        }
     </table>
 </div>

@@ -6,5 +6,9 @@
     public interface IArticleCategoryService
     {
         IQueryable<AtricleCategory> All();
+
+        AtricleCategory CreateNewCategory(AtricleCategory categoryToAdd);
+
+        AtricleCategory UpdateCategory(AtricleCategory updated);
     }
 }

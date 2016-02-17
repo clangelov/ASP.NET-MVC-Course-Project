@@ -4,6 +4,7 @@
     using System.Web.Mvc;
     using AutoMapper;
     using AutoMapper.QueryableExtensions;
+    using Common.Constants;
     using Kendo.Mvc.Extensions;
     using Kendo.Mvc.UI;
     using Models.Articles;
@@ -11,7 +12,7 @@
     using VinylC.Services.Data.Contracts;
     using VinylC.Web.MVC.Areas.Administration.Controllers.Base;
 
-    // [Authorize(Roles = Roles.AdminRole)]
+    [Authorize(Roles = Roles.AdminRole)]
     public class ArticleController : BaseController
     {
         private IArticleService articlesService;

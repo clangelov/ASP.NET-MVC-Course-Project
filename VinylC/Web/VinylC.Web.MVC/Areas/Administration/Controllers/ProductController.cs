@@ -5,13 +5,14 @@
     using AutoMapper;
     using AutoMapper.QueryableExtensions;
     using Base;
+    using Common.Constants;
     using Data.Models;
     using Kendo.Mvc.Extensions;
     using Kendo.Mvc.UI;
     using Services.Data.Contracts;
     using VinylC.Web.MVC.Areas.Administration.Models.Products;
 
-    // [Authorize(Roles = Roles.AdminRole)]
+    [Authorize(Roles = Roles.AdminRole)]
     public class ProductController : BaseController
     {
         private IProductService productsService;

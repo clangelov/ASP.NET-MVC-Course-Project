@@ -1,0 +1,31 @@
+﻿<br />
+<h2 class="text-center">Edit or Update Articles Categories</h2>
+@(Html.Kendo().Grid<VinylC.Web.MVC.Areas.Administration.Models.Category.CategoryAdminViewModel>()
+      .Name("grid")
+      .Columns(columns =>
+      {
+        columns.Bound(c => c.Name);
+        columns.Command(command => { command.Edit(); });
+      })
+      .ToolBar(toolbar => {
+            toolbar.Create();
+      })
+      .Editable(editable => editable.Mode(GridEditMode.PopUp))
+      .Pageable(p => p.Refresh(true))
+      .Navigatable()
+      .Selectable(selectable => {
+            selectable.Mode(GridSelectionMode.Single);
+            selectable.Type(GridSelectionType.Row);
+      })
+      .Sortable(sortable => {
+          sortable.SortMode(GridSortMode.SingleColumn);
+      })
+      .Filterable()
+      .DataSource(dataSource => dataSource
+          .Ajax()
+          .Model(model => model.Id(p => p.Id))
+          .Read(read => read.Action("AtricleCategoriesRead", "Category"))
+          .Create(create => create.Action("AtricleCategoriesCreate", "Category"))
+          .Update(update => update.Action("AtricleCategoriesUpdate", "Category"))
+      )
+)

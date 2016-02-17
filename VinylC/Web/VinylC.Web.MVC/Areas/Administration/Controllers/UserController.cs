@@ -1,16 +1,16 @@
 ﻿namespace VinylC.Web.MVC.Areas.Administration.Controllers
 {
-    using System.Linq;
     using System.Web.Mvc;
     using AutoMapper;
     using AutoMapper.QueryableExtensions;
+    using Common.Constants;
     using Kendo.Mvc.Extensions;
     using Kendo.Mvc.UI;
     using Models.Users;
-    using VinylC.Data.Models;
     using VinylC.Services.Data.Contracts;
     using VinylC.Web.MVC.Areas.Administration.Controllers.Base;
 
+    [Authorize(Roles = Roles.AdminRole)]
     public class UserController : BaseController
     {
         public UserController(IUserService usersService)

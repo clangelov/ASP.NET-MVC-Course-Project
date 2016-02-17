@@ -1,0 +1,31 @@
+﻿@model VinylC.Web.MVC.Areas.Administration.Models.Users.UserAdminViewModel
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="form-group">
+            @Html.LabelFor(m => m.Avatar, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.Avatar, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Role, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(m => m.Role, new SelectList(
+                  new List<Object>{
+                        new { value = "User" , text = "User" },
+                        new { value = "Admin" , text = "Admin"  }                       
+                    },
+                  "value",
+                  "text",
+                   2), new { @class = "form-control" })
+            </div>
+        </div>
+    </div>
+</div>

@@ -3,11 +3,12 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vinyl Community</title>    
+    <title>Vinyl Community</title>
     @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/modernizr")    
+    @Scripts.Render("~/bundles/modernizr")
     @Styles.Render("~/Content/css")
-    @RenderSection("styles", required: false)    
+    @Styles.Render("~/Content/kendo")
+    @RenderSection("styles", required: false)
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -41,6 +42,7 @@
         </footer>
     </div>
 
+    @Scripts.Render("~/bundles/kendo")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
 </body>

@@ -76,6 +76,24 @@
             return this.PartialView("_CategoriesPartial", categories);
         }
 
+        [HttpGet]
+        [ChildActionOnly]
+        public ActionResult GetSearchProductsPartial()
+        {
+            return this.PartialView("_SearchViewPartial");
+        }
+
+        [HttpGet]
+        public JsonResult GetSearchResults(string text)
+        {
+            var result = this.articles.AllArticles()
+                .Where(x => x.Title.ToLower().Contains(text.ToLower()))
+                .ProjectTo<ArticlesListViewModel>()
+                .ToList();
+
+            return Json(result, JsonRequestBehavior.AllowGet);
+        }
+
         private IQueryable<ArticlesListViewModel> GetSorted(IQueryable<ArticlesListViewModel> allArticles, string sortOrder)
         {
             ViewBag.CurrentSort = sortOrder;

@@ -1,0 +1,57 @@
+﻿<br />
+<h2 class="text-center">Edit, Update or Delete Articles</h2>
+@(Html.Kendo().Grid<VinylC.Web.MVC.Areas.Administration.Models.Articles.ArticleAdminViewModel>()
+      .Name("grid")
+      .Columns(columns =>
+      {
+          columns.Bound(c => c.ImageUrl).ClientTemplate(
+                    @"<div class='customer-photo'
+                        style='background-image: url(#:data.ImageUrl#);'></div>")
+              .Width(60);
+          columns.Bound(c => c.Title);
+          columns.Bound(c => c.Contetnt);
+          columns.Command(c => c.Edit());
+          columns.Command(c => c.Destroy());
+      })
+      .ToolBar(toolbar =>
+      {
+          toolbar.Create();
+      })
+      .Editable(editable => editable.Mode(GridEditMode.PopUp))
+      .Pageable(page => page.Refresh(true))
+      .Selectable(selectable =>
+      {
+          selectable.Mode(GridSelectionMode.Single);
+          selectable.Type(GridSelectionType.Row);
+      })
+      .Sortable(sortable =>
+      {
+          sortable.SortMode(GridSortMode.SingleColumn);
+      })
+      .Filterable()
+      .Resizable(resize => resize.Columns(true))
+      .DataSource(dataSource => dataSource
+          .Ajax()
+          .Model(model => model.Id(p => p.Id))
+          .Read(read => read.Action("ArticlesRead", "Article"))
+          .Create(create => create.Action("ArticlesCreate", "Article"))
+          .Update(update => update.Action("ArticlesUpdate", "Article"))
+          .Destroy(destroy => destroy.Action("ArticlesDestroy", "Article"))
+      )
+)
+
+<style>
+.customer-photo {
+        display: inline-block;
+        width: 64px;
+        height: 64px;
+        border-radius: 50%;
+        background-size: 64px 70px;
+        background-position: center center;
+        vertical-align: middle;
+        line-height: 64px;
+        box-shadow: inset 0 0 1px #999, inset 0 0 10px rgba(0,0,0,.2);
+        margin-left: 5px;
+    }
+</style>
+

@@ -474,6 +474,8 @@
     <Content Include="Views\Home\_SimpleArticlesPartial.cshtml" />
     <Content Include="Views\Home\_SimpleProductsPartial.cshtml" />
     <Content Include="Views\Articles\_SearchViewPartial.cshtml" />
+    <Content Include="Views\Error\My500.cshtml" />
+    <Content Include="Views\Error\My400.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

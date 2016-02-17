@@ -1,5 +1,6 @@
 ﻿namespace VinylC.Web.MVC.Controllers
 {
+    using System;
     using System.Linq;
     using System.Web.Mvc;
     using AutoMapper.QueryableExtensions;

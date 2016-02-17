@@ -8,5 +8,15 @@
         {
             return View();
         }
+
+        public ActionResult My500()
+        {
+            return View();
+        }
+
+        public ActionResult My400()
+        {
+            return View();
+        }
     }
 }

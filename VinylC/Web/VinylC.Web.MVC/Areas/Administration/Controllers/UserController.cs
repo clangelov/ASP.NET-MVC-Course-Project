@@ -1,99 +1,65 @@
 ﻿namespace VinylC.Web.MVC.Areas.Administration.Controllers
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Data;
-    using System.Data.Entity;
     using System.Linq;
-    using System.Net;
-    using System.Web;
     using System.Web.Mvc;
-    using Data;
+    using AutoMapper;
+    using AutoMapper.QueryableExtensions;
     using Kendo.Mvc.Extensions;
     using Kendo.Mvc.UI;
     using Models.Users;
     using VinylC.Data.Models;
+    using VinylC.Services.Data.Contracts;
+    using VinylC.Web.MVC.Areas.Administration.Controllers.Base;
 
-    public class UserController : Controller
+    public class UserController : BaseController
     {
-        private VinylCDbContext db = new VinylCDbContext();
+        public UserController(IUserService usersService)
+            : base(usersService)
+        {
+        }
 
         public ActionResult Index()
         {
             return View();
         }
 
-        public ActionResult Users_Read([DataSourceRequest]DataSourceRequest request)
+        public ActionResult UsersRead([DataSourceRequest]DataSourceRequest request)
         {
-            IQueryable<User> users = db.Users;
-            DataSourceResult result = users.ToDataSourceResult(request, c => new UserAdminViewModel 
-            {
-                Avatar = c.Avatar
-            });
+            var input = this.usersService
+                .All()
+                .ProjectTo<UserAdminViewModel>();
 
-            return Json(result);
+            DataSourceResult result = input.ToDataSourceResult(request);
+
+            return Json(result, JsonRequestBehavior.AllowGet);
         }
 
         [AcceptVerbs(HttpVerbs.Post)]
-        public ActionResult Users_Create([DataSourceRequest]DataSourceRequest request, UserAdminViewModel user)
+        public ActionResult UsersUpdate([DataSourceRequest]DataSourceRequest request, UserAdminViewModel model)
         {
-            if (ModelState.IsValid)
+            if (ModelState.IsValid && model != null)
             {
-                var entity = new User
-                {
-                    Avatar = user.Avatar
-                };
+                var currentData = this.usersService.GetUser(model.UserName);
+                currentData.Avatar = model.Avatar;
+                currentData.Email = model.Email;               
 
-                db.Users.Add(entity);
-                db.SaveChanges();
-                user.Id = entity.Id;
+                var result = this.usersService.UpdateUser(currentData, model.Role);
+
+                Mapper.Map(result, model);
             }
 
-            return Json(new[] { user }.ToDataSourceResult(request, ModelState));
+            return Json(new[] { model }.ToDataSourceResult(request, ModelState));
         }
 
         [AcceptVerbs(HttpVerbs.Post)]
-        public ActionResult Users_Update([DataSourceRequest]DataSourceRequest request, UserAdminViewModel user)
+        public ActionResult UsersDestroy([DataSourceRequest]DataSourceRequest request, UserAdminViewModel model)
         {
-            if (ModelState.IsValid)
+            if (ModelState.IsValid && model != null)
             {
-                var entity = new User
-                {
-                    Id = user.Id,
-                    Avatar = user.Avatar
-                };
-
-                db.Users.Attach(entity);
-                db.Entry(entity).State = EntityState.Modified;
-                db.SaveChanges();
+                this.usersService.DeleteUser(model.Id);
             }
 
-            return Json(new[] { user }.ToDataSourceResult(request, ModelState));
-        }
-
-        [AcceptVerbs(HttpVerbs.Post)]
-        public ActionResult Users_Destroy([DataSourceRequest]DataSourceRequest request, UserAdminViewModel user)
-        {
-            if (ModelState.IsValid)
-            {
-                var entity = new User
-                {
-                    Id = user.Id,
-                    Avatar = user.Avatar
-                };
-
-                db.Users.Attach(entity);
-                db.Users.Remove(entity);
-                db.SaveChanges();
-            }
-
-            return Json(new[] { user }.ToDataSourceResult(request, ModelState));
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            db.Dispose();
-            base.Dispose(disposing);
+            return Json(new[] { model }.ToDataSourceResult(request, ModelState));
         }
     }
 }

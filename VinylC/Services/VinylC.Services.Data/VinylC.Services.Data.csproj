@@ -74,6 +74,10 @@
     <Compile Include="UserService.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Common\VinylC.Common\VinylC.Common.csproj">
+      <Project>{80dbce48-b087-4de5-ac96-234216e7e2ba}</Project>
+      <Name>VinylC.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Data\VinylC.Data.Models\VinylC.Data.Models.csproj">
       <Project>{df2da81c-a674-4732-bc26-a50168eb78e7}</Project>
       <Name>VinylC.Data.Models</Name>

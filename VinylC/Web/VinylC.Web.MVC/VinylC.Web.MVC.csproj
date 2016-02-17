@@ -217,8 +217,8 @@
     <Compile Include="Areas\Administration\AdministrationAreaRegistration.cs" />
     <Compile Include="Areas\Administration\Controllers\ArticleController.cs" />
     <Compile Include="Areas\Administration\Controllers\Base\BaseController.cs" />
-    <Compile Include="Areas\Administration\Controllers\ProductController.cs" />
     <Compile Include="Areas\Administration\Controllers\UserController.cs" />
+    <Compile Include="Areas\Administration\Controllers\ProductController.cs" />
     <Compile Include="Areas\Administration\Models\Articles\ArticleAdminViewModel.cs" />
     <Compile Include="Areas\Administration\Models\Products\ProductAdminViewModel.cs" />
     <Compile Include="Areas\Administration\Models\Users\UserAdminViewModel.cs" />
@@ -402,6 +402,7 @@
     <Content Include="Areas\Administration\Views\Shared\EditorTemplates\ProductAdminViewModel.cshtml" />
     <Content Include="Areas\Administration\Views\Article\Index.cshtml" />
     <Content Include="Areas\Administration\Views\Shared\EditorTemplates\ArticleAdminViewModel.cshtml" />
+    <Content Include="Areas\Administration\Views\Shared\EditorTemplates\UserAdminViewModel.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

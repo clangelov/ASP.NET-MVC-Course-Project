@@ -4,10 +4,13 @@
       .Name("grid")
       .Columns(columns =>
       {
+          columns.Bound(c => c.Picture).ClientTemplate(
+                    @"<div class='customer-photo'
+                        style='background-image: url(#:data.Picture#);'></div>")
+              .Width(60);
           columns.Bound(c => c.Title);
           columns.Bound(c => c.Description);
-          columns.Bound(c => c.Price);
-          columns.Bound(c => c.Picture);
+          columns.Bound(c => c.Price);          
           columns.Bound(c => c.ReleaseDate);
           columns.Command(c => c.Edit());
           columns.Command(c => c.Destroy());
@@ -35,3 +38,19 @@
           .Destroy(destroy => destroy.Action("ProductsDestroy", "Product"))
       )
 )
+
+<style>
+    .customer-photo {
+        display: inline-block;
+        width: 64px;
+        height: 64px;
+        border-radius: 50%;
+        background-size: 64px 70px;
+        background-position: center center;
+        vertical-align: middle;
+        line-height: 64px;
+        box-shadow: inset 0 0 1px #999, inset 0 0 10px rgba(0,0,0,.2);
+        margin-left: 5px;
+    }
+</style>
+

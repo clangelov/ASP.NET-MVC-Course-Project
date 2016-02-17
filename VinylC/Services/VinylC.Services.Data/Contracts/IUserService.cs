@@ -8,5 +8,11 @@
         User GetUser(string name);
 
         IQueryable<User> UserById(string id);
+
+        IQueryable<User> All();
+
+        User UpdateUser(User userToUpdate, string role);
+
+        void DeleteUser(string id);
     }
 }

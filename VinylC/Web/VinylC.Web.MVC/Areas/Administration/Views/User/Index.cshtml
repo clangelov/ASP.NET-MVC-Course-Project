@@ -1,29 +1,52 @@
 ﻿<br />
+<h2 class="text-center">Edit, Update or Delete Users</h2>
 @(Html.Kendo().Grid<VinylC.Web.MVC.Areas.Administration.Models.Users.UserAdminViewModel>()
       .Name("grid")
       .Columns(columns =>
       {
-          columns.Bound(c => c.Avatar);
+          columns.Bound(c => c.Avatar).ClientTemplate(
+                    @"<div class='customer-photo'
+                        style='background-image: url(#:data.Avatar#);'></div>")
+              .Width(75);
+          columns.Bound(c => c.UserName);
+          columns.Bound(c => c.Email);
+          columns.Bound(c => c.Role);
           columns.Command(c => c.Edit());
           columns.Command(c => c.Destroy());
       })
-      .ToolBar(toolbar => {
-          toolbar.Create();
-      })
       .Editable(editable => editable.Mode(GridEditMode.PopUp))
-      .Pageable(page => page.Refresh(true))
-      .Navigatable()
-      .Sortable(sortable => {
+      .Pageable(p => p.Refresh(true))
+      .Selectable(selectable =>
+      {
+          selectable.Mode(GridSelectionMode.Single);
+          selectable.Type(GridSelectionType.Row);
+      })
+      .Sortable(sortable =>
+      {
           sortable.SortMode(GridSortMode.SingleColumn);
       })
       .Filterable()
-      .Scrollable()
+      .Resizable(resize => resize.Columns(true))
       .DataSource(dataSource => dataSource
           .Ajax()
           .Model(model => model.Id(p => p.Id))
-          .Read(read => read.Action("Users_Read", "User"))
-          .Create(create => create.Action("Users_Create", "User"))
-          .Update(update => update.Action("Users_Update", "User"))
-          .Destroy(destroy => destroy.Action("Users_Destroy", "User"))
+          .Read(read => read.Action("UsersRead", "User"))
+          .Update(update => update.Action("UsersUpdate", "User"))
+          .Destroy(destroy => destroy.Action("UsersDestroy", "User"))
       )
 )
+
+<style>
+    .customer-photo {
+        display: inline-block;
+        width: 64px;
+        height: 64px;
+        border-radius: 50%;
+        background-size: 64px 70px;
+        background-position: center center;
+        vertical-align: middle;
+        line-height: 64px;
+        box-shadow: inset 0 0 1px #999, inset 0 0 10px rgba(0,0,0,.2);
+        margin-left: 5px;
+    }
+</style>

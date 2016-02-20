@@ -19,7 +19,15 @@
         {
             toAdd.PostedOn = DateTime.UtcNow;
             this.articles.Add(toAdd);
-            this.articles.SaveChanges();
+            try
+            {
+                this.articles.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+
+            }
+            
 
             return toAdd;
         }

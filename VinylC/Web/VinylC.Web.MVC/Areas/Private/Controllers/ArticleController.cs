@@ -6,6 +6,7 @@
     using Data.Models;
     using Models.Articles;
     using Services.Data.Contracts;
+    using Services.Web.Contracts;
 
     [Authorize]
     public class ArticleController : BaseController
@@ -13,8 +14,8 @@
         private IArticleService articlesService;
         private IAtricleCategoriesService articleCategoriesService;
 
-        public ArticleController(IUserService usersService, IArticleService articlesService, IAtricleCategoriesService articleCategoriesService)
-            :base(usersService)
+        public ArticleController(IUserService usersService, IArticleService articlesService, IAtricleCategoriesService articleCategoriesService, ISanitizer sanitizeService)
+            :base(usersService, sanitizeService)
         {
             this.articlesService = articlesService;
             this.articleCategoriesService = articleCategoriesService;
@@ -43,6 +44,9 @@
         {
             if (model != null && ModelState.IsValid)
             {
+                model.Title = this.sanitizeService.Sanitize(model.Title);
+                model.Contetnt = this.sanitizeService.Sanitize(model.Contetnt);
+
                 var newArticle = AutoMapper.Mapper.Map<Article>(model);
 
                 newArticle.UserId = this.CurrentUser.Id;

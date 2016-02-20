@@ -8,7 +8,7 @@
         <div class="list-group-item">
             <div class="alert alert-dismissible alert-info">   
                 <span class="pull-right label label-default">Archived</span>
-                <p>@message.Content</p>
+                <p>@Html.Raw(message.Content)</p>
                 <p class="text-muted">
                     <span class="glyphicon glyphicon-user"></span> @message.From
                 </p>

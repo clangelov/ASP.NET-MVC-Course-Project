@@ -2,6 +2,7 @@
 {
     using System;
     using System.ComponentModel.DataAnnotations;
+    using System.Web.Mvc;
     using Common.Constants;
     using VinylC.Data.Models;
     using VinylC.Web.MVC.Infrastructure.Mappings;
@@ -18,6 +19,7 @@
         }
 
         [Required]
+        [AllowHtml]
         [UIHint("MultiLineText")]
         [MaxLength(ModelConstants.CommentLenght)]
         public string Replay { get; set; }

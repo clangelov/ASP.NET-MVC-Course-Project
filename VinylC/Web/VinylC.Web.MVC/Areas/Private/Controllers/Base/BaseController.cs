@@ -6,6 +6,7 @@
     using Data.Models;
     using Services.Data.Contracts;
     using Services.Web.Contracts;
+
     [HandleError]
     public class BaseController : Controller
     {
@@ -23,7 +24,7 @@
             this.sanitizeService = sanitizeService;
         }
 
-        protected User CurrentUser { get; private set; }
+        public User CurrentUser { get; set; }
 
         protected override IAsyncResult BeginExecute(RequestContext requestContext, AsyncCallback callback, object state)
         {

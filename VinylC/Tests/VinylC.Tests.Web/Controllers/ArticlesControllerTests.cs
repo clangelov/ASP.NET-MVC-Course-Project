@@ -1,12 +1,8 @@
 ﻿namespace VinylC.Tests.Web.Controllers
 {
-    using System;
     using System.Collections.Generic;
-    using System.Linq;
     using System.Net;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
-    using Newtonsoft.Json;
-    using Newtonsoft.Json.Linq;
     using PagedList;
     using TestStack.FluentMVCTesting;
     using VinylC.Services.Data.Contracts;

@@ -3,12 +3,19 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
+    using Common.Constants;
     using Data.Models;
     using Moq;
     using Services.Data.Contracts;
 
     public static class ObjectFactory
     {
+        public static IQueryable<AtricleCategory> articlesCategories = new List<AtricleCategory>
+        {
+            new AtricleCategory() { Name = "Music" },
+            new AtricleCategory() { Name = "History" }
+        }.AsQueryable();
+
         public static IQueryable<Article> articles = new List<Article>
         {
             new Article() {
@@ -47,11 +54,16 @@
         {
             new Product
                 {
+                    Id = 1,
                     Title = "New iPhone 7",
                     Description = "According to Apple's traditional cadence, new iPhone models debut in the fall.",
                     Price = 999,
                     ReleaseDate = new DateTime(2016,9,25),
-                    UserId = "123456789",
+                    User = new User
+                    {
+                        UserName = "123456",
+                        Avatar = Avatar.DefaultAvatar
+                    },
                     Picture = "/Content/Products/iphone-7.png",
                     Ratings = new List<Rating>
                     {
@@ -63,11 +75,16 @@
                 },
                 new Product
                 {
+                    Id = 2,
                     Title = "Audio-Technica Wireless",
                     Description = "Bluetooth-compatible + fully automatic belt-driven turntable from Audio-Technica.",
                     Price = 180,
                     ReleaseDate = new DateTime(2016,4,21),
-                    UserId = "123456789",
+                    User = new User
+                    {
+                        UserName = "123456",
+                        Avatar = Avatar.DefaultAvatar
+                    },
                     Picture = "/Content/Products/37762911.jpg",
                     Ratings = new List<Rating>
                     {
@@ -86,10 +103,21 @@
             productService.Setup(x => x.AllProducts())
                 .Returns(products);
 
+            productService.Setup(x => x.ProductById(
+                It.Is<int>(v => v == 1)))
+                .Returns(products.Where(x => x.Id == 1));
+
+            productService.Setup(x => x.AddRating(
+                    It.Is<int>(v => v == 1),
+                    It.Is<int>(r => r > 0 && r < 6),
+                    It.IsAny<string>()
+                ))
+                .Returns(3.5f);
+
             return productService.Object;
         }
 
-        public static IArticleService  GetArticleService()
+        public static IArticleService GetArticleService()
         {
             var articlesService = new Mock<IArticleService>();
 
@@ -111,7 +139,25 @@
         {
             var articlesCategoriesService = new Mock<IAtricleCategoriesService>();
 
+            articlesCategoriesService.Setup(x => x.AllArticleCategories())
+               .Returns(articlesCategories);
+
             return articlesCategoriesService.Object;
+        }
+
+        public static IUserService GetUserService()
+        {
+            var userService = new Mock<IUserService>();
+
+            userService.Setup(x => x.GetUser(
+                It.IsAny<string>()))
+                .Returns(new User
+                {
+                    Id = "123456",
+                    UserName = "TestUser"
+                });
+
+            return userService.Object;
         }
     }
 }

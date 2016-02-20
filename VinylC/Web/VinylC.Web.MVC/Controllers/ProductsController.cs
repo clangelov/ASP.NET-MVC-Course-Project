@@ -28,6 +28,11 @@
 
             int pageNumber = page ?? 1;
 
+            if (products.Count() < (pageNumber * PageSize))
+            {
+                pageNumber = (int)Math.Ceiling((double)products.Count() / PageSize);
+            }
+
             var sorted = this.GetSorted(products, sortOrder);
 
             return this.View(sorted.ToPagedList(pageNumber, PageSize));

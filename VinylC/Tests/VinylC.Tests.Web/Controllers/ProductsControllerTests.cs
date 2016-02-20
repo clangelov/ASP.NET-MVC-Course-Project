@@ -38,7 +38,7 @@
         }
 
         [TestMethod]
-        public void TestIfAllSortsByPriceAscending()
+        public void TestIfProductAllSortsByPriceAscending()
         {
             this.controller
                 .WithCallTo(c => c.All(string.Empty, "Price", null))
@@ -47,7 +47,7 @@
         }
 
         [TestMethod]
-        public void TestIfAllSortsByPriceDescending()
+        public void TestIfProductAllSortsByPriceDescending()
         {
             this.controller
                 .WithCallTo(c => c.All(string.Empty, "price_desc", null))
@@ -56,7 +56,7 @@
         }
 
         [TestMethod]
-        public void TestIfAllSortsByRatingAscending()
+        public void TestIfProductAllSortsByRatingAscending()
         {
             this.controller
                 .WithCallTo(c => c.All(string.Empty, "Rating", null))
@@ -65,7 +65,7 @@
         }
 
         [TestMethod]
-        public void TestIfAllSortsByRatingDescending()
+        public void TestIfProductAllSortsByRatingDescending()
         {
             this.controller
                 .WithCallTo(c => c.All(string.Empty, "rating_desc", null))
@@ -74,7 +74,7 @@
         }
 
         [TestMethod]
-        public void TestIfSearchPageReturnsNoResultsWithEmptyString()
+        public void TestIfProductSearchPageReturnsNoResultsWithEmptyString()
         {
             this.controller
                 .WithCallTo(c => c.Search("Invalid Search"))
@@ -82,7 +82,7 @@
         }
 
         [TestMethod]
-        public void TestIfSearchPageReturnsCorrectView()
+        public void TestIfProductSearchPageReturnsCorrectView()
         {
             this.controller
                 .WithCallTo(c => c.Search("iPhone"))

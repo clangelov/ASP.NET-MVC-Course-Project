@@ -82,16 +82,28 @@
         public static IProductService GetProductService()
         {
             var productService = new Mock<IProductService>();
+
             productService.Setup(x => x.AllProducts())
                 .Returns(products);
+
             return productService.Object;
         }
 
         public static IArticleService  GetArticleService()
         {
             var articlesService = new Mock<IArticleService>();
+
             articlesService.Setup(x => x.AllArticles())
                 .Returns(articles);
+
+            articlesService.Setup(x => x.ArticleById(
+                It.Is<int>(v => v == 1)))
+                .Returns(articles.Where(x => x.Id == 1));
+
+            articlesService.Setup(x => x.AllByCategory(
+                It.IsAny<string>()))
+                .Returns(articles);
+
             return articlesService.Object;
         }
 

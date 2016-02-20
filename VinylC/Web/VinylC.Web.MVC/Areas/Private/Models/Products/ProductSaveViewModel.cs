@@ -4,6 +4,7 @@
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Web;
+    using System.Web.Mvc;
     using Infrastructure.Validation;
     using VinylC.Common.Constants;
     using VinylC.Data.Models;
@@ -12,11 +13,13 @@
     public class ProductSaveViewModel : IMapFrom<Product>
     {
         [Required]
+        [AllowHtml]
         [MinLength(ModelConstants.TitleMinLength)]
         [MaxLength(ModelConstants.TitleMaxLength)]
         public string Title { get; set; }
 
         [UIHint("MultiLineText")]
+        [AllowHtml]
         [MinLength(ModelConstants.ContentMinLength)]
         [MaxLength(ModelConstants.ContentMaxLength)]
         public string Description { get; set; }

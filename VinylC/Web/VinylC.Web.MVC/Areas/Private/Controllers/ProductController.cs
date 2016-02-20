@@ -9,6 +9,7 @@
     using Data.Models;
     using Models.Products;
     using Models.Ratings;
+    using Services.Web.Contracts;
     using VinylC.Services.Data.Contracts;
     using VinylC.Web.MVC.Areas.Private.Controllers.Base;
 
@@ -17,8 +18,8 @@
     {
         private IProductService productsService;
 
-        public ProductController(IUserService usersService, IProductService productsService)
-            :base(usersService)
+        public ProductController(IUserService usersService, IProductService productsService, ISanitizer sanitizeService)
+            :base(usersService, sanitizeService)
         {
             this.productsService = productsService;
         }
@@ -69,6 +70,9 @@
         {
             if (model != null && ModelState.IsValid)
             {
+                model.Title = this.sanitizeService.Sanitize(model.Title);
+                model.Description = this.sanitizeService.Sanitize(model.Description);
+
                 var newProduct = AutoMapper.Mapper.Map<Product>(model);
 
                 if (model.File != null && model.File.ContentType == "image/jpeg" && model.File.ContentLength < 1048576)

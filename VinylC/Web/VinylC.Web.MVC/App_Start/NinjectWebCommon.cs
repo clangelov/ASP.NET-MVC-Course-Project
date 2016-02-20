@@ -66,7 +66,10 @@ namespace VinylC.Web.MVC.App_Start
         private static void RegisterServices(IKernel kernel)
         {
             kernel.Bind<IVinylCDbContext>().To<VinylCDbContext>().InRequestScope();
+
             kernel.Bind<ICacheService>().To<HttpCacheService>();
+            kernel.Bind<ISanitizer>().To<HtmlSanitizerAdapter>();
+
             kernel.Bind(typeof(IRepository<>)).To(typeof(GenericRepository<>));
             kernel.Bind(b => b
                 .From(Assemblies.DataServices)

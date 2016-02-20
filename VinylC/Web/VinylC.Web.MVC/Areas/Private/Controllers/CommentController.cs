@@ -6,6 +6,7 @@
     using AutoMapper.QueryableExtensions;
     using Base;
     using MVC.Models.Comments;
+    using Services.Web.Contracts;
     using VinylC.Data.Models;
     using VinylC.Services.Data.Contracts;
     using VinylC.Web.MVC.Areas.Private.Models.Articles;
@@ -14,10 +15,11 @@
     {
         private ICommentService commentsService;
 
-        public CommentController(IUserService userService, ICommentService commentsService)
-            :base(userService)
+        public CommentController(IUserService userService, ICommentService commentsService, ISanitizer sanitizeService)
+            :base(userService, sanitizeService)
         {
             this.commentsService = commentsService;
+            this.sanitizeService = sanitizeService;
         }
 
         [HttpPost]
@@ -27,6 +29,8 @@
         {
             if (model != null && ModelState.IsValid)
             {
+                model.Replay = this.sanitizeService.Sanitize(model.Replay);
+
                 var comment = Mapper.Map<Comment>(model);
                 comment.UserId = this.CurrentUser.Id;
 

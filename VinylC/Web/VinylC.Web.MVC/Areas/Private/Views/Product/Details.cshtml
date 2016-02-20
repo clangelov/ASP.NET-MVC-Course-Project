@@ -14,7 +14,7 @@
     <div class="row">
         <div class="row">
             <div class="col-md-10">
-                <h2 class="text-center text-primary">@Html.DisplayFor(model => model.Title)</h2>
+                <h2 class="text-center text-primary">@Html.Raw(Model.Title)</h2>
             </div>
             <div class="col-md-2"><button id="ReturnBackButon" class="btn btn-lg btn-default pull-right">Go Back</button></div>
         </div>
@@ -64,7 +64,7 @@
     </div>
     <hr />
     <div class="row tab-pane">
-        @Html.DisplayFor(model => model.Description)
+        @Html.Raw(Model.Description)
     </div>
 </div>
 

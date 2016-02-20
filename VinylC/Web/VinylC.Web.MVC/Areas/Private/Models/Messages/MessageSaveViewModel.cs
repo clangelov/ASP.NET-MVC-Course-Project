@@ -2,6 +2,7 @@
 {
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
+    using System.Web.Mvc;
     using Common.Constants;
     using VinylC.Data.Models;
     using VinylC.Web.MVC.Infrastructure.Mappings;
@@ -19,6 +20,7 @@
         }
 
         [Required]
+        [AllowHtml]
         [UIHint("MultiLineText")]
         [MaxLength(ModelConstants.MessageMaxLenght)]
         public string Content { get; set; }

@@ -23,7 +23,7 @@
                }, new { @class = "pull-right label label-info" })
                 </span>
 
-                <p>@message.Content</p>
+                <p>@Html.Raw(message.Content)</p>
                 <p class="text-muted">
                     <span class="glyphicon glyphicon-user"></span> @message.From
                 </p>

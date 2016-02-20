@@ -7,7 +7,7 @@
                 <img src=@Model.Avatar />
             </div>
             <div class="commentText">
-                <p class="">@Model.Replay</p>
+                <p class="">@Html.Raw(Model.Replay)</p>
                 <span class="date sub-text">Poseted on @Model.PostedOn</span>
                 <span class="date sub-text">By @Model.UserName</span>                
             </div>

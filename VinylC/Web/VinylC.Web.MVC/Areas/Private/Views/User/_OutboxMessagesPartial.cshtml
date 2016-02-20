@@ -19,7 +19,7 @@
                     <span class="pull-right label label-warning">Not Seen</span>
 
                 }
-                <p>@message.Content</p>
+                <p>@Html.Raw(message.Content)</p>
                 <p class="text-muted">
                     <span class="glyphicon glyphicon-user"></span> @message.To
                 </p>

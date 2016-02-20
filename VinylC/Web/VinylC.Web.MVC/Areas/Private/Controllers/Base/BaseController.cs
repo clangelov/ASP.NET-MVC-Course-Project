@@ -5,15 +5,22 @@
     using System.Web.Routing;
     using Data.Models;
     using Services.Data.Contracts;
-
+    using Services.Web.Contracts;
     [HandleError]
     public class BaseController : Controller
     {
         protected IUserService usersService;
+        protected ISanitizer sanitizeService;
 
         public BaseController(IUserService usersService)
         {
             this.usersService = usersService;
+        }
+
+        public BaseController(IUserService usersService, ISanitizer sanitizeService)
+        {
+            this.usersService = usersService;
+            this.sanitizeService = sanitizeService;
         }
 
         protected User CurrentUser { get; private set; }

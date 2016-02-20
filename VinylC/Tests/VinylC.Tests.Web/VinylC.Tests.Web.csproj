@@ -126,7 +126,9 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Controllers\ArticlesControllerTests.cs" />
+    <Compile Include="Controllers\ErrorControllerTests.cs" />
     <Compile Include="Controllers\HomeControllerTests.cs" />
+    <Compile Include="Controllers\PrivateArea\PrivateArticlesControllerTests.cs" />
     <Compile Include="Controllers\PrivateArea\PrivateProducsControllerTests.cs" />
     <Compile Include="Controllers\ProductsControllerTests.cs" />
     <Compile Include="ObjectFactory.cs" />

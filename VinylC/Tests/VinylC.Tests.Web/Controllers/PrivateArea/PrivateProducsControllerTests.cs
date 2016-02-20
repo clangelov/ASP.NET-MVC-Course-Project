@@ -1,10 +1,8 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-namespace VinylC.Tests.Web.Controllers.PrivateArea
+﻿namespace VinylC.Tests.Web.Controllers.PrivateArea
 {
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
-    using System.Linq;
     using System.Net;
     using System.Web;
     using Microsoft.VisualStudio.TestTools.UnitTesting;

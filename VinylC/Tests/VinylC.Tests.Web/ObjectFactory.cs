@@ -12,8 +12,8 @@
     {
         public static IQueryable<AtricleCategory> articlesCategories = new List<AtricleCategory>
         {
-            new AtricleCategory() { Name = "Music" },
-            new AtricleCategory() { Name = "History" }
+            new AtricleCategory() { Id = 1, Name = "Music" },
+            new AtricleCategory() { Id = 2, Name = "History" }
         }.AsQueryable();
 
         public static IQueryable<Article> articles = new List<Article>
@@ -120,6 +120,10 @@
         public static IArticleService GetArticleService()
         {
             var articlesService = new Mock<IArticleService>();
+
+            articlesService.Setup(x => x.AddArticle(
+                It.IsAny<Article>()))
+                .Returns(new Article { Id = 5 });
 
             articlesService.Setup(x => x.AllArticles())
                 .Returns(articles);

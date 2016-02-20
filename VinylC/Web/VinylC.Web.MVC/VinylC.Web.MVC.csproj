@@ -484,11 +484,6 @@
     <Folder Include="Content\Products\" />
     <Folder Include="Content\Videos\" />
     <Folder Include="ExternalLibraries\" />
-    <Folder Include="Views\Article\" />
-    <Folder Include="Views\Category\" />
-    <Folder Include="Views\Grid\" />
-    <Folder Include="Views\Product\" />
-    <Folder Include="Views\User\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

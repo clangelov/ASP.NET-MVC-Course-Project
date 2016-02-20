@@ -132,6 +132,7 @@
     <Compile Include="Controllers\PrivateArea\MessageControllerTests.cs" />
     <Compile Include="Controllers\PrivateArea\PrivateArticlesControllerTests.cs" />
     <Compile Include="Controllers\PrivateArea\PrivateProducsControllerTests.cs" />
+    <Compile Include="Controllers\PrivateArea\UserControllerTests.cs" />
     <Compile Include="Controllers\ProductsControllerTests.cs" />
     <Compile Include="ObjectFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

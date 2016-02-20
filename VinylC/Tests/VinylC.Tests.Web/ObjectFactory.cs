@@ -16,6 +16,21 @@
             new AtricleCategory() { Id = 2, Name = "History" }
         }.AsQueryable();
 
+        public static IQueryable<Comment> comments = new List<Comment>
+        {
+            new Comment() {
+                Id = 1,
+                Replay = "Some Text",
+                PostedOn = DateTime.UtcNow,
+                ArticleId = 2,
+                User = new User
+                {
+                    Avatar = Avatar.DefaultAvatar,
+                    UserName = "TestUser"
+                }
+            }
+        }.AsQueryable();
+
         public static IQueryable<Article> articles = new List<Article>
         {
             new Article() {
@@ -162,6 +177,32 @@
                 });
 
             return userService.Object;
+        }
+
+        public static IMessageService GetMessageService()
+        {
+            var messageService = new Mock<IMessageService>();
+
+            messageService.Setup(x => x.AddMessage(
+                It.IsAny<Message>()))
+                .Returns(new Message { Id = 5 });
+
+            return messageService.Object;
+        }
+
+        public static ICommentService GetCommentService()
+        {
+            var commentService = new Mock<ICommentService>();
+
+            commentService.Setup(x => x.AddNew(
+                It.IsAny<Comment>()))
+                .Returns(new Comment { Id = 5 });
+
+            commentService.Setup(x => x.AllByArticel(
+                It.IsAny<int>()))
+                .Returns(comments);
+
+            return commentService.Object;
         }
     }
 }

@@ -128,6 +128,8 @@
     <Compile Include="Controllers\ArticlesControllerTests.cs" />
     <Compile Include="Controllers\ErrorControllerTests.cs" />
     <Compile Include="Controllers\HomeControllerTests.cs" />
+    <Compile Include="Controllers\PrivateArea\CommentsControllerTests.cs" />
+    <Compile Include="Controllers\PrivateArea\MessageControllerTests.cs" />
     <Compile Include="Controllers\PrivateArea\PrivateArticlesControllerTests.cs" />
     <Compile Include="Controllers\PrivateArea\PrivateProducsControllerTests.cs" />
     <Compile Include="Controllers\ProductsControllerTests.cs" />

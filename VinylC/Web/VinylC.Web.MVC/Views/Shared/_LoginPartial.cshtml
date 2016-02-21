@@ -22,10 +22,7 @@
                 </li>
             }
             <li>
-                @Html.ActionLink("Your Profile", "Index", "User", new { area = "Private" }, null)
-            </li>
-            <li>
-                @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+                @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "User", new { area = "Private" }, null)
             </li>
             <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
         </ul>

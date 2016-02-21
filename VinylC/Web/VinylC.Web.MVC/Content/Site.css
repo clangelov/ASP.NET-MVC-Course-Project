@@ -38,3 +38,13 @@ img.img-responsive {
 .link-custom-color {
     color: inherit;
 }
+
+.map {
+    height: 400px;
+}
+
+@media(max-width:768px) {
+    .map {
+        height: 75%;
+    }
+}

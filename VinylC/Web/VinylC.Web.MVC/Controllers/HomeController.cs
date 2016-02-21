@@ -30,6 +30,11 @@
             return View();
         }
 
+        public ActionResult Contact()
+        {
+            return View();
+        }
+
         [HttpGet]
         [ChildActionOnly]
         public ActionResult GetArticlesPartial()

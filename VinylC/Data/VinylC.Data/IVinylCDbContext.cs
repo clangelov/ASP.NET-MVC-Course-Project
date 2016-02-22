@@ -20,6 +20,14 @@
 
         IDbSet<Message> Messages { get; set; }
 
+        IDbSet<GeoLocation> GeoLocations { get; set; }
+
+        IDbSet<Place> Places { get; set; }
+
+        IDbSet<Tag> Tags { get; set; }
+
+        IDbSet<Opinion> Opinions { get; set; }
+
         DbSet<TEntity> Set<TEntity>() where TEntity : class;
 
         DbEntityEntry<TEntity> Entry<TEntity>(TEntity entity) where TEntity : class;

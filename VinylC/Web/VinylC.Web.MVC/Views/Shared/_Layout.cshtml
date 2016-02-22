@@ -27,11 +27,12 @@
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Articles", "All", "Articles", new { Area = "" }, null)</li>
                     <li>@Html.ActionLink("Upcoming Products", "All", "Products", new { Area = "" }, null)</li>
+                    <li>@Html.ActionLink("Places", "Index", "Place", new { Area = "" }, null)</li>
                     @if (User.Identity.IsAuthenticated)
                     {
                         <li>@Html.ActionLink("Live Chat", "Index", "Chat", new { Area = "" }, null)</li>
                     }
-                    <li>@Html.ActionLink("Contacts", "Contact", "Home", new { Area = "" }, null)</li>
+                    <li>@Html.ActionLink("Contact", "Contact", "Home", new { Area = "" }, null)</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>

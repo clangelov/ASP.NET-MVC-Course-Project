@@ -23,6 +23,14 @@
 
         public virtual IDbSet<Message> Messages { get; set; }
 
+        public virtual IDbSet<GeoLocation> GeoLocations { get; set; }
+
+        public virtual IDbSet<Place> Places { get; set; }
+
+        public virtual IDbSet<Tag> Tags { get; set; }
+
+        public virtual IDbSet<Opinion> Opinions { get; set; }
+
         public static VinylCDbContext Create()
         {
             return new VinylCDbContext();

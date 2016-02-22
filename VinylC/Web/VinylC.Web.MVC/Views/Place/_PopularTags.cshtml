@@ -1,0 +1,9 @@
+﻿@model IEnumerable<VinylC.Web.MVC.Models.Tags.TagsListViewModel>
+
+<ul class="nav nav-pills">
+    @foreach (var item in Model)
+    {
+        <li>@Html.ActionLink(item.Name, "Index/" + item.Id, "Place")</li>
+    }
+</ul>
+

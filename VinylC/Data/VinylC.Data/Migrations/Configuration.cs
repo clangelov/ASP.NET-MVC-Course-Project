@@ -16,6 +16,7 @@ namespace VinylC.Data.Migrations
             new AdminSeeder().Seed(context);
             new ArticlesSeeder().Seed(context);
             new ProductSeeder().Seed(context);
+            new PlacesSeeder().Seed(context);
         }
     }
 }

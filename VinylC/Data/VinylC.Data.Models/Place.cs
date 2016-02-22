@@ -7,10 +7,12 @@
     public class Place
     {
         private ICollection<Tag> tags;
+        private ICollection<Opinion> opinions;
 
         public Place()
         {
             this.tags = new HashSet<Tag>();
+            this.opinions = new HashSet<Opinion>();
         }
 
         [Key]
@@ -29,6 +31,12 @@
         {
             get { return this.tags; }
             set { this.tags = value; }
+        }
+
+        public virtual ICollection<Opinion> Opinions
+        {
+            get { return this.opinions; }
+            set { this.opinions = value; }
         }
     }
 }

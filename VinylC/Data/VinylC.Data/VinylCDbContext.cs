@@ -29,6 +29,8 @@
 
         public virtual IDbSet<Tag> Tags { get; set; }
 
+        public virtual IDbSet<Opinion> Opinions { get; set; }
+
         public static VinylCDbContext Create()
         {
             return new VinylCDbContext();

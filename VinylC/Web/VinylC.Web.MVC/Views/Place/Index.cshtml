@@ -65,7 +65,7 @@
         var placeId = element.getAttribute('data-id') | 0;
 
         var infowindow = new google.maps.InfoWindow({
-            content: '<div style="width: 200px"><form action="/Place/SendExpression" method="post"><input type="hidden" value=' + placeId + ' name="placeId" /><input type="text" placeholder="Share your opinion" name="opinion" class="form-control"><input type="submit" value="Submit" class="btn btn-xs btn-success full-width"></form></div>'
+            content: '<div><form action="/Place/SendOpinion" method="post"><input type="hidden" value=' + placeId + ' name="placeId" /><textarea type="text" placeholder="Share your opinion" name="opinion" class="form-control" rows="3"></textarea><input type="submit" value="Submit" class="btn btn-xs btn-success full-width"></form></div>'
         });
 
         google.maps.event.addListener(marker, 'click', function () {

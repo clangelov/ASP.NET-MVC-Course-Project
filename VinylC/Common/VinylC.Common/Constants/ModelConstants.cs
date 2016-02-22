@@ -4,6 +4,8 @@
     {
         public const string ValidateUrl = @"(?:([^:/?#]+):)?(?://([^/?#]*))?([^?#]*\.(?:jpg|gif|png))(?:\?([^#]*))?(?:#(.*))?";
 
+        public const int MinOpinionLenght = 4;
+
         public const int CommentLenght = 200;
 
         public const int MessageMaxLenght = 200;

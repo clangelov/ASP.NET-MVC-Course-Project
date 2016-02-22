@@ -62,6 +62,7 @@
     <Compile Include="Comment.cs" />
     <Compile Include="GeoLocation.cs" />
     <Compile Include="Message.cs" />
+    <Compile Include="Opinion.cs" />
     <Compile Include="Place.cs" />
     <Compile Include="Product.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

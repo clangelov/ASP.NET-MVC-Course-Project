@@ -262,8 +262,10 @@
     <Compile Include="Models\Articles\ArticlesListViewModel.cs" />
     <Compile Include="Models\Comments\CommentsViewModel.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Places\PlacesListViewModel.cs" />
     <Compile Include="Models\Products\ProductSimpleListViewModel.cs" />
     <Compile Include="Models\Products\ProductsListViewModel.cs" />
+    <Compile Include="Models\Tags\TagsListViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -485,6 +487,7 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\DateTime.cshtml" />
     <Content Include="Views\Place\Index.cshtml" />
+    <Content Include="Views\Place\_PlacesPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

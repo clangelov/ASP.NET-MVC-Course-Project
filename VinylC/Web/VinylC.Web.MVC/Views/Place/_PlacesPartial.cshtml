@@ -1,0 +1,23 @@
+﻿@model IEnumerable<VinylC.Web.MVC.Models.Places.PlacesListViewModel>
+
+@foreach (var item in Model)
+{
+    <div class="list-group-item chengable" data-latitude=@item.Latitude data-longitude=@item.Longitude data-id=@item.Id>
+        <h4 class="list-group-item-heading text-center">@item.Title</h4>
+        <p class="list-group-item-text">
+            @if (item.Tags.Count() > 0)
+            {
+                foreach (var tag in item.Tags)
+                {
+                    <span class="label label-primary single-tag">
+                        @tag.Name
+                    </span>
+                }
+            }
+            else
+            {
+                <span>No Tags</span>
+            }
+        </p>
+    </div>
+}

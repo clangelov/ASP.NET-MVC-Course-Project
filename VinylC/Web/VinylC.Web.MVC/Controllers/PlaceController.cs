@@ -5,6 +5,8 @@
     using System.Linq;
     using System.Web;
     using System.Web.Mvc;
+    using AutoMapper.QueryableExtensions;
+    using Models.Places;
     using Services.Data.Contracts;
 
     public class PlaceController : Controller
@@ -18,7 +20,11 @@
 
         public ActionResult Index()
         {
-            return View();
+            var model = this.placeService
+                .AllPlaces()
+                .ProjectTo<PlacesListViewModel>();
+
+            return View(model);
         }
     }
 }

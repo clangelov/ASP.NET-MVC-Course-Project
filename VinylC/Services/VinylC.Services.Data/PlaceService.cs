@@ -1,5 +1,6 @@
 ﻿namespace VinylC.Services.Data
 {
+    using System;
     using System.Collections.Generic;
     using System.Linq;
     using VinylC.Data;
@@ -11,13 +12,15 @@
     {
         private readonly IRepository<Place> places;
         private readonly IRepository<Opinion> opinions;
+        private readonly IRepository<Tag> tags;
         private readonly IVinylCDbContext dbContext;
 
-        public PlaceService(IRepository<Place> places, IRepository<Opinion> opinions, IVinylCDbContext dbContext)
+        public PlaceService(IRepository<Place> places, IRepository<Opinion> opinions, IVinylCDbContext dbContext, IRepository<Tag> tags)
         {
             this.places = places;
             this.opinions = opinions;
             this.dbContext = dbContext;
+            this.tags = tags;
         }
 
         public void AddNewOpinion(Opinion newOppinion)
@@ -85,6 +88,11 @@
         public IQueryable<Place> AllPlaces()
         {
             return this.places.All().OrderBy(p => p.Title);
+        }
+
+        public IQueryable<Place> AllByTag(int id)
+        {
+            return this.tags.All().Where(t => t.Id == id).SelectMany(p => p.Places);
         }
     }
 }

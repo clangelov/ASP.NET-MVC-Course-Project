@@ -352,6 +352,7 @@
     <Content Include="Scripts\App\back-button-logic.js" />
     <Content Include="Scripts\App\chat.js" />
     <Content Include="Scripts\App\control-video.js" />
+    <Content Include="Scripts\App\map-logic.js" />
     <Content Include="Scripts\App\profilePictureDisplay.js" />
     <Content Include="Scripts\App\progress-bar-control.js" />
     <Content Include="Scripts\App\searchAjaxScript.js" />
@@ -488,6 +489,7 @@
     <Content Include="Views\Shared\DisplayTemplates\DateTime.cshtml" />
     <Content Include="Views\Place\Index.cshtml" />
     <Content Include="Views\Place\_PlacesPartial.cshtml" />
+    <Content Include="Views\Place\_PopularTags.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

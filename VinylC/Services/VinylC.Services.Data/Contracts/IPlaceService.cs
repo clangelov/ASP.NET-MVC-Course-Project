@@ -8,6 +8,8 @@
     {
         IQueryable<Place> AllPlaces();
 
+        IQueryable<Place> AllByTag(int id);
+
         void AddNewOpinion(Opinion newOppinion);
 
         void AddTags(int id, List<string> tagNames);

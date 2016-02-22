@@ -7,22 +7,39 @@
     using Common.Constants;
     using Data.Models;
     using Models.Places;
+    using Models.Tags;
     using Services.Data.Contracts;
 
     public class PlaceController : Controller
     {
-        private IPlaceService placeService;
+        private const int MostPopularTagsCount = 12;
 
-        public PlaceController(IPlaceService placeService)
+        private IPlaceService placeService;
+        private ITagService tagsService;
+
+        public PlaceController(IPlaceService placeService, ITagService tagsService)
         {
             this.placeService = placeService;
+            this.tagsService = tagsService;
         }
 
-        public ActionResult Index()
+        public ActionResult Index(int? id)
         {
-            var model = this.placeService
+            IEnumerable<PlacesListViewModel> model;
+
+            if (id == null)
+            {
+                model = this.placeService
                 .AllPlaces()
                 .ProjectTo<PlacesListViewModel>();
+            }
+            else
+            {
+                int searchId = id ?? default(int);
+                model = this.placeService
+                .AllByTag(searchId)
+                .ProjectTo<PlacesListViewModel>();
+            }
 
             return View(model);
         }
@@ -48,6 +65,15 @@
             }
 
             return this.RedirectToAction("Index");
+        }
+
+        public ActionResult GetPopularTags()
+        {
+            var result = this.tagsService
+                .MostPopular(MostPopularTagsCount)
+                .ProjectTo<TagsListViewModel>();
+
+            return this.PartialView("_PopularTags", result);
         }
 
         private List<string> ExtractTagsFromOpinion(string opinion)

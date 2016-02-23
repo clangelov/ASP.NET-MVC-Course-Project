@@ -52,3 +52,7 @@ The **public part** gives a lot of information to the users like almost full acc
 ### Usage of Kendo UI for ASP.NET MVC
 
 The lib is on trial version and it is not legal to use it unless purchased or also downloaded as trial [Kendo UI](http://www.telerik.com/kendo-ui).
+
+- - - - 
+
+Telerik Academy 2015/2016

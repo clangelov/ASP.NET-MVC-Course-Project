@@ -44,10 +44,15 @@ The **public part** gives a lot of information to the users like almost full acc
 - Automapper - A convention-based object-object mapper
 - Twitter Bootstrap - For responsive design
 - jQuery
-- Kendo UI for ASP.NET MVC
-- FluentMvcTesting - for unit testing the controllers
-- NProgress.js - adds a page loading bar
-- PagedList.Mvc - used for pagination 
+- jQuery.Validation - Client site validation
+- jQuery.Unobtrusive.Ajax - For Ajax requests
+- Kendo UI for ASP.NET MVC - Generating UI
+- HtmlSanitizer - Avoiding  XSS attacks
+- FluentMvcTesting - For unit testing the controllers
+- Moq - Mocking objects by unit-testing
+- NProgress.js - Adds a page loading bar
+- PagedList.Mvc - Used for pagination 
+- reCAPTCH.MVC -  Protects the site from spam and abuse
 
 ### Usage of Kendo UI for ASP.NET MVC
 

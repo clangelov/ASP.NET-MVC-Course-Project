@@ -44,7 +44,8 @@
                     "Articles",
                     () => this.articlesService
                         .MostCommented(ProductsCount)
-                        .ProjectTo<ArticleSimpleViewModel>(),
+                        .ProjectTo<ArticleSimpleViewModel>()
+                        .ToList(),
                     TimeForCache);
 
             return this.PartialView("_SimpleArticlesPartial", articlesData);
@@ -59,7 +60,8 @@
                     "Products",
                     () => this.productsService
                         .GetHighestRated(ProductsCount)
-                        .ProjectTo<ProductSimpleListViewModel>(),
+                        .ProjectTo<ProductSimpleListViewModel>()
+                        .ToList(),
                     TimeForCache);
 
             return this.PartialView("_SimpleProductsPartial", productsData);

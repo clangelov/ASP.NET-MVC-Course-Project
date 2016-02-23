@@ -18,16 +18,7 @@
         public Article AddArticle(Article toAdd)
         {
             toAdd.PostedOn = DateTime.UtcNow;
-            this.articles.Add(toAdd);
-            try
-            {
-                this.articles.SaveChanges();
-            }
-            catch (Exception ex)
-            {
-
-            }
-            
+            this.articles.SaveChanges();
 
             return toAdd;
         }

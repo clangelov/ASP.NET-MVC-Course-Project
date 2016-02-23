@@ -1,19 +1,17 @@
-﻿using System;
-using System.Globalization;
-using System.Linq;
-using System.Security.Claims;
-using System.Threading.Tasks;
-using System.Web;
-using System.Web.Mvc;
-using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.Owin;
-using Microsoft.Owin.Security;
-using VinylC.Common.Constants;
-using VinylC.Data.Models;
-using VinylC.Web.MVC.Models;
-
-namespace VinylC.Web.MVC.Controllers
+﻿namespace VinylC.Web.MVC.Controllers
 {
+    using System.Linq;
+    using System.Threading.Tasks;
+    using System.Web;
+    using System.Web.Mvc;
+    using Microsoft.AspNet.Identity;
+    using Microsoft.AspNet.Identity.Owin;
+    using Microsoft.Owin.Security;
+    using reCAPTCHA.MVC;
+    using VinylC.Common.Constants;
+    using VinylC.Data.Models;
+    using VinylC.Web.MVC.Models;
+
     [Authorize]
     public class AccountController : Controller
     {
@@ -149,7 +147,8 @@ namespace VinylC.Web.MVC.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Register(RegisterViewModel model)
+        [CaptchaValidator]
+        public async Task<ActionResult> Register(RegisterViewModel model, bool captchaValid)
         {
             if (ModelState.IsValid)
             {

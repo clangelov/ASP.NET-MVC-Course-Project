@@ -235,7 +235,4 @@ _Pvt_Extensions
 # FAKE - F# Make
 .fake/
 
-/VinylC/Web/VinylC.Web.MVC/Content/Products
-/VinylC/Web/VinylC.Web.MVC/Content/Products/*
-/VinylC/Web/VinylC.Web.MVC/Content/Videos
 /VinylC/Web/VinylC.Web.MVC/Content/Images/*

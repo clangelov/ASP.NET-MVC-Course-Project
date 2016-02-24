@@ -1,11 +1,7 @@
 ﻿namespace VinylC.Tests.Web.Controllers.PrivateArea
 {
-    using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
     using TestStack.FluentMVCTesting;
     using VinylC.Services.Data.Contracts;
@@ -14,6 +10,7 @@
     using VinylC.Web.MVC.Areas.Private.Controllers;
     using VinylC.Web.MVC.Areas.Private.Models.Articles;
     using VinylC.Web.MVC.Controllers;
+
     [TestClass]
     public class PrivateArticlesControllerTests
     {

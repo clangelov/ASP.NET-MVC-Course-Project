@@ -1,20 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Web;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using TestStack.FluentMVCTesting;
-using VinylC.Services.Data.Contracts;
-using VinylC.Services.Web;
-using VinylC.Services.Web.Contracts;
-using VinylC.Web.MVC.Areas.Private.Controllers;
-using VinylC.Web.MVC.Areas.Private.Models.Articles;
-
 namespace VinylC.Tests.Web.Controllers.PrivateArea
 {
+    using System.Web;
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using TestStack.FluentMVCTesting;
+    using VinylC.Services.Data.Contracts;
+    using VinylC.Services.Web;
+    using VinylC.Services.Web.Contracts;
+    using VinylC.Web.MVC.Areas.Private.Controllers;
+    using VinylC.Web.MVC.Areas.Private.Models.Articles;
+
     [TestClass]
     public class CommentsControllerTests
     {

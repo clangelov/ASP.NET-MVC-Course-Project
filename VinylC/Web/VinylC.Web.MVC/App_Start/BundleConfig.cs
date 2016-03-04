@@ -1,8 +1,7 @@
-﻿using System.Web;
-using System.Web.Optimization;
-
-namespace VinylC.Web.MVC
+﻿namespace VinylC.Web.MVC
 {
+    using System.Web.Optimization;
+
     public class BundleConfig
     {
         // For more information on bundling, visit http://go.microsoft.com/fwlink/?LinkId=301862
@@ -22,10 +21,10 @@ namespace VinylC.Web.MVC
                       "~/Scripts/jquery.unobtrusive-ajax.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/registration").Include(
-                      "~/Scripts/App/profilePictureDisplay.js"));
+                      "~/Scripts/App/profile-picture-display.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/customsearch").Include(
-                      "~/Scripts/App/searchAjaxScript.js"));
+                      "~/Scripts/App/search-ajax.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/backbuttonlogic").Include(
                       "~/Scripts/App/back-button-logic.js"));

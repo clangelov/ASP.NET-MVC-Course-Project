@@ -196,7 +196,7 @@
 
             commentService.Setup(x => x.AddNew(
                 It.IsAny<Comment>()))
-                .Returns(new Comment { Id = 5 });
+                .ReturnsAsync(new Comment { Id = 5 });
 
             commentService.Setup(x => x.AllByArticel(
                 It.IsAny<int>()))

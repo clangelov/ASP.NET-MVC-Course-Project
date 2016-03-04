@@ -1,5 +1,6 @@
 ﻿namespace VinylC.Web.MVC.Areas.Private.Controllers
 {
+    using System.Threading.Tasks;
     using System.Web;
     using System.Web.Mvc;
     using AutoMapper;
@@ -25,7 +26,7 @@
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize]
-        public ActionResult AddComment(AddCommentViewModel model)
+        public async Task<ActionResult> AddComment(AddCommentViewModel model)
         {
             if (model != null && ModelState.IsValid)
             {
@@ -34,7 +35,7 @@
                 var comment = Mapper.Map<Comment>(model);
                 comment.UserId = this.CurrentUser.Id;
 
-                comment = this.commentsService.AddNew(comment);
+                comment = await this.commentsService.AddNew(comment);
 
                 var viewModel = Mapper.Map<CommentsViewModel>(comment);
                 viewModel.Avatar = this.CurrentUser.Avatar;

@@ -3,6 +3,7 @@
     using System.IO;
     using System.Linq;
     using System.Net;
+    using System.Threading.Tasks;
     using System.Web;
     using System.Web.Mvc;
     using AutoMapper.QueryableExtensions;
@@ -66,7 +67,7 @@
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(ProductSaveViewModel model)
+        public async Task<ActionResult> Create(ProductSaveViewModel model)
         {
             if (model != null && ModelState.IsValid)
             {
@@ -97,7 +98,7 @@
 
                 newProduct.UserId = this.CurrentUser.Id;
 
-                var result = this.productsService.AddProduct(newProduct);
+                var result = await this.productsService.AddProduct(newProduct);
 
                 return this.RedirectToAction("Details", "Product", new { area = "Private", id = result.Id });
             }

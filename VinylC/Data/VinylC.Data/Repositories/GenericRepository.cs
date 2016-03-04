@@ -3,6 +3,7 @@
     using System;
     using System.Data.Entity;
     using System.Linq;
+    using System.Threading.Tasks;
 
     public class GenericRepository<T> : IRepository<T> where T : class
     {
@@ -95,9 +96,14 @@
             return this.Context.SaveChanges();
         }
 
+        public Task<int> SaveChangesAsync()
+        {
+            return this.Context.SaveChangesAsync();
+        }
+
         public void Dispose()
         {
             this.Context.Dispose();
-        }
+        }        
     }
 }

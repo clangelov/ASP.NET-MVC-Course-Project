@@ -2,6 +2,7 @@
 {
     using System;
     using System.Linq;
+    using System.Threading.Tasks;
     using VinylC.Data.Models;
     using VinylC.Data.Repositories;
     using VinylC.Services.Data.Contracts;
@@ -18,10 +19,10 @@
             this.ratings = ratings;
         }
 
-        public Product AddProduct(Product toAdd)
+        public async Task<Product> AddProduct(Product toAdd)
         {
             this.products.Add(toAdd);
-            this.products.SaveChanges();
+            await this.products.SaveChangesAsync();
 
             return toAdd;
         }

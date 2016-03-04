@@ -1,6 +1,7 @@
 ﻿namespace VinylC.Services.Data.Contracts
 {
     using System.Linq;
+    using System.Threading.Tasks;
     using VinylC.Data.Models;
 
     public interface IProductService
@@ -11,7 +12,7 @@
 
         IQueryable<Product> GetHighestRated(int count);
 
-        Product AddProduct(Product toAdd);
+        Task<Product> AddProduct(Product toAdd);
 
         IQueryable<Product> UpdateProduct(Product update);
 

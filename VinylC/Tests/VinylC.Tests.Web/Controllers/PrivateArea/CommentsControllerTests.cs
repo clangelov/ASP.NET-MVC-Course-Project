@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 namespace VinylC.Tests.Web.Controllers.PrivateArea
 {
+    using System.Threading.Tasks;
     using System.Web;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
     using TestStack.FluentMVCTesting;
@@ -41,7 +42,7 @@ namespace VinylC.Tests.Web.Controllers.PrivateArea
         }
 
         [TestMethod]
-        [ExpectedException(typeof(HttpException), "Invalid Comment")]
+        [ExpectedException(typeof(AggregateException), "Invalid Comment")]
         public void TestIfProductsAddCommnetReturn400WithNullAsModel()
         {
             this.controller

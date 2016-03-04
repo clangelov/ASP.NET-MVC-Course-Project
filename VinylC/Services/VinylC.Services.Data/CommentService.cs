@@ -18,12 +18,12 @@
             this.comments = comments;
         }
 
-        public Comment AddNew(Comment toAdd)
+        public async Task<Comment> AddNew(Comment toAdd)
         {
             toAdd.PostedOn = DateTime.UtcNow;
 
             this.comments.Add(toAdd);
-            this.comments.SaveChanges();
+            await this.comments.SaveChangesAsync();
 
             return toAdd;
         }

@@ -1,11 +1,12 @@
 ﻿namespace VinylC.Services.Data.Contracts
 {
     using System.Linq;
+    using System.Threading.Tasks;
     using VinylC.Data.Models;
 
     public interface ICommentService
     {
-        Comment AddNew(Comment toAdd);
+        Task<Comment> AddNew(Comment toAdd);
 
         IQueryable<Comment> AllByArticel(int id);
 

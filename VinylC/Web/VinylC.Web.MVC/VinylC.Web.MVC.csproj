@@ -260,6 +260,7 @@
     <Compile Include="Infrastructure\Mappings\IMapFrom.cs" />
     <Compile Include="Infrastructure\Validation\CustomDateRangeAttribute.cs" />
     <Compile Include="Infrastructure\Validation\ValidateFileAttribute.cs" />
+    <Compile Include="Infrastructure\ViewEngines\CSharpRazorViewEngine.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Articles\ArticlesDetailsViewModel.cs" />
     <Compile Include="Models\Articles\ArticleSimpleViewModel.cs" />

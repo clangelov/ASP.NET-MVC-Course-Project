@@ -9,6 +9,7 @@
     using Models.Places;
     using Models.Tags;
     using Services.Data.Contracts;
+    using VinylC.Common.Regex;
 
     public class PlaceController : Controller
     {
@@ -80,9 +81,7 @@
         {
             List<string> result = new List<string>();
 
-            string regexCondition = @"#[A-Za-z0-9]{3,}";
-
-            Regex myRegex = new Regex(regexCondition, RegexOptions.None);
+            Regex myRegex = new HashTagPattern();
 
             foreach (Match myMatch in myRegex.Matches(opinion))
             {

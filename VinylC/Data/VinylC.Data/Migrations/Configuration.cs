@@ -7,8 +7,10 @@ namespace VinylC.Data.Migrations
     {
         public Configuration()
         {
+#if DEBUG
             this.AutomaticMigrationsEnabled = true;
             this.AutomaticMigrationDataLossAllowed = true;
+#endif
         }
 
         protected override void Seed(VinylCDbContext context)

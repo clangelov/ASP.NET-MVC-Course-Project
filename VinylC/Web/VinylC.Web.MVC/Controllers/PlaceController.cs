@@ -10,6 +10,7 @@
     using Models.Tags;
     using Services.Data.Contracts;
     using VinylC.Common.Regex;
+    using System.Linq;
 
     public class PlaceController : Controller
     {
@@ -91,7 +92,7 @@
                 }
             }
 
-            return result;
+            return result.Distinct().ToList();
         }
     }
 }

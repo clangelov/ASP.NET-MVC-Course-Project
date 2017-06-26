@@ -515,10 +515,6 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Common\VinylC.Common.RegexCompileDll\VinylC.Common.RegexCompileDll.csproj">
-      <Project>{56f7349c-99fd-42d2-8274-6b5d0e686b5d}</Project>
-      <Name>VinylC.Common.RegexCompileDll</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\Common\VinylC.Common\VinylC.Common.csproj">
       <Project>{80dbce48-b087-4de5-ac96-234216e7e2ba}</Project>
       <Name>VinylC.Common</Name>

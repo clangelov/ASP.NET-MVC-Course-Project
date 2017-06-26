@@ -5,7 +5,7 @@
 
     public class Program
     {
-        public static void CompileDll()
+        public static void Main()
         {
             RegexCompilationInfo HashTagPattern =
                                new RegexCompilationInfo(@"#[A-Za-z0-9]{3,}",

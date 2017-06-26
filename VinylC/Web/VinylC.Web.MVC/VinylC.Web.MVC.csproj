@@ -92,8 +92,9 @@
       <HintPath>..\..\packages\reCAPTCH.MVC.1.0.1\lib\net45\reCAPTCHA.MVC.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="RegexLib">
-      <HintPath>..\..\Common\VinylC.Common.RegexCompileDll\bin\Debug\RegexLib.dll</HintPath>
+    <Reference Include="RegexLib, Version=1.0.0.1001, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>ExternalLibraries\RegexLib.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -535,6 +536,9 @@
       <Project>{256a96f6-0661-4d74-8250-a52ec74694c8}</Project>
       <Name>VinylC.Services.Web</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

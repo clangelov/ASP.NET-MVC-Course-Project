@@ -1,5 +1,6 @@
 ﻿namespace VinylC.Common.RegexCompileDll
 {
+    using System;
     using System.Reflection;
     using System.Text.RegularExpressions;
 
@@ -19,6 +20,8 @@
             AssemblyName assemName = new AssemblyName("RegexLib, Version=1.0.0.1001, Culture=neutral, PublicKeyToken=null");
 
             Regex.CompileToAssembly(regexes, assemName);
+
+            Environment.Exit(0);
         }
     }
 }

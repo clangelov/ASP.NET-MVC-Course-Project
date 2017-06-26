@@ -4,11 +4,13 @@
     using System.Web.Optimization;
     using System.Web.Routing;
     using Common.Constants;
+    using Common.RegexCompileDll;
 
     public class MvcApplication : System.Web.HttpApplication
     {
         protected void Application_Start()
         {
+            CustomRegex.CompileDll();
             ViewEnginesConfig.RegisterViewEngines();
             AutoMapperConfig.RegisterMappings(Assemblies.MVCProject);
             AreaRegistration.RegisterAllAreas();
